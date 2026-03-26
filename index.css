@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Bellefair&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #1e1e1e;
+  --pink: #FFA5C5;
+  --green: #BEEBA9;
+  --card-bg: #252525;
+  --text: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.7);
+  --border: rgba(255, 255, 255, 0.2);
+  --font: 'Bellefair', serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.app {
+  width: 100%;
+  max-width: 100%;
+  text-align: left;
+}
