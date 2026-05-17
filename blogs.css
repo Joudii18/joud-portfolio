@@ -1,0 +1,358 @@
+/* ================================================================
+   blogs.css — Joud's Portfolio – Blogs Page
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bellefair&display=swap');
+
+/* ── Reset & Variables ── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg:         #1e1e1e;
+  --pink:       #FFA5C5;
+  --green:      #BEEBA9;
+  --card-bg:    #252525;
+  --text:       #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.7);
+  --border:     rgba(255, 255, 255, 0.2);
+  --font:       'Bellefair', serif;
+  --timeline-line: rgba(190, 235, 169, 0.3);
+  --dot:        #BEEBA9;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+}
+
+/* ── Navbar ── */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 5%;
+  background: rgba(30, 30, 30, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+.navbar.scrolled {
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.4);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--font);
+  font-size: 1.4rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav-star {
+  width: 25px;
+  height: 25px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-family: var(--font);
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--green);
+}
+
+/* ── Page Header ── */
+.page-header {
+  padding: 9rem 5% 2.5rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.page-header h1 {
+  font-family: var(--font);
+  font-size: clamp(2rem, 4vw, 5rem);
+  color: var(--text);
+  font-weight: 400;
+  margin-bottom: 0.6rem;
+}
+
+.page-subtitle {
+  font-family: var(--font);
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  max-width: 540px;
+}
+
+.header-sparkle {
+  width: 70px;
+  height: 70px;
+  margin-top: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* ── Filter Bar ── */
+.filter-bar {
+  padding: 0 5% 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.filter-main-row {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+/* Sub-filters hidden by default */
+.filter-sub-row {
+  display: none;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  padding-left: 0.2rem;
+}
+
+.filter-sub-row.visible {
+  display: flex;
+}
+
+.filter-btn {
+  padding: 0.5rem 1.3rem;
+  border: 1px solid var(--border);
+  border-radius: 2rem;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.filter-btn:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--text);
+}
+
+.filter-btn.active {
+  background: rgba(190, 235, 169, 0.12);
+  border-color: var(--green);
+  color: var(--green);
+}
+
+/* Sub-buttons slightly smaller */
+.sub-btn {
+  font-size: 0.88rem;
+  padding: 0.4rem 1.1rem;
+}
+
+/* ── Timeline ── */
+.timeline-section {
+  padding: 1rem 5% 6rem;
+}
+
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Vertical center line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--timeline-line);
+  transform: translateX(-50%);
+}
+
+/* ── Timeline Entry ── */
+.timeline-entry {
+  position: relative;
+  width: 50%;
+  margin-bottom: 3.5rem;
+}
+
+.timeline-entry.left {
+  margin-left: 0;
+  margin-right: auto;
+  padding-right: 36px;
+}
+
+.timeline-entry.right {
+  margin-left: auto;
+  margin-right: 0;
+  padding-left: 36px;
+}
+
+/* Date label */
+.entry-date {
+  display: block;
+  font-family: var(--font);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+}
+
+/* Dot on the line — centered exactly on the 50% vertical line */
+.timeline-dot {
+  position: absolute;
+  top: 1.2rem;
+  width: 10px;
+  height: 10px;
+  background: var(--dot);
+  border-radius: 50%;
+  border: 2px solid var(--bg);
+}
+
+/* Right edge of left entry = 50%; dot center = right edge - half dot width */
+.timeline-entry.left .timeline-dot {
+  right: -5px;
+}
+
+/* Left edge of right entry = 50%; dot center = left edge - half dot width */
+.timeline-entry.right .timeline-dot {
+  left: -5px;
+}
+
+/* ── Blog Card base ── */
+.blog-card {
+  background: var(--card-bg);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+/* ── Layout A: image left, text right ── */
+.blog-card--h {
+  display: flex;
+  align-items: stretch;
+  min-height: 240px;
+}
+
+.blog-img-side {
+  flex: 0 0 44%;
+  overflow: hidden;
+  border-radius: 18px 0 0 18px;
+}
+
+.blog-img-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 18px 0 0 18px;
+}
+
+/* ── Layout B: image top, text bottom ── */
+.blog-card--img-top .blog-img-top {
+  overflow: hidden;
+  border-radius: 18px 18px 0 0;
+}
+
+.blog-card--img-top .blog-img-top img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+  border-radius: 18px 18px 0 0;
+}
+
+/* ── Layout C: text top, image bottom ── */
+.blog-card--img-bottom .blog-img-bottom {
+  overflow: hidden;
+  border-radius: 0 0 18px 18px;
+}
+
+.blog-card--img-bottom .blog-img-bottom img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+  border-radius: 0 0 18px 18px;
+}
+
+/* ── Blog body (text area) ── */
+.blog-body {
+  padding: 1.4rem 1.6rem 1.6rem;
+  flex: 1;
+}
+
+.blog-card h3 {
+  font-family: var(--font);
+  font-size: 1.15rem;
+  color: var(--text);
+  font-weight: 400;
+  margin-bottom: 0.6rem;
+}
+
+.blog-card p {
+  font-family: var(--font);
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+/* ── Footer ── */
+.footer {
+  text-align: center;
+  padding: 2rem;
+  font-family: var(--font);
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.45);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.footer p {
+  margin: 0.15rem 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+  .timeline::before {
+    left: 16px;
+    transform: none;
+  }
+
+  .timeline-entry,
+  .timeline-entry.left,
+  .timeline-entry.right {
+    width: 100%;
+    padding-left: 3rem;
+    padding-right: 0;
+    margin-left: 0;
+  }
+
+  .timeline-entry.left .timeline-dot,
+  .timeline-entry.right .timeline-dot {
+    left: 12px;
+    right: auto;
+  }
+
+  .header-sparkle {
+    width: 48px;
+    height: 48px;
+  }
+}

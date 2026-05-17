@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blogs — Joud</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="blogs.css" />
+</head>
+<body>
+
+  <!-- ── Navbar ── -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/sparkles/whiteSparkle.png" alt="" class="nav-star" />
+      <span>Joud</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="blogs.html">Blogs</a>
+    </div>
+  </nav>
+
+  <!-- ── Page Header ── -->
+  <section class="page-header">
+    <div class="header-text">
+      <h1>Blogs</h1>
+      <p class="page-subtitle">A visual diary of my favorite moments.</p>
+    </div>
+    <img src="assets/sparkles/greenSparkle.png" alt="" class="header-sparkle" />
+  </section>
+
+  <!-- ── Filter Bar ── -->
+  <div class="filter-bar">
+    <div class="filter-main-row">
+      <button class="filter-btn" data-filter="university" data-has-sub="true">University</button>
+      <button class="filter-btn" data-filter="travel">Travel</button>
+    </div>
+    <div class="filter-sub-row" id="university-subs">
+      <button class="filter-btn sub-btn" data-filter="computerclub" data-parent="university">Computer Club</button>
+      <button class="filter-btn sub-btn" data-filter="globalresearch" data-parent="university">Global Student Research</button>
+      <button class="filter-btn sub-btn" data-filter="freshman" data-parent="university">Freshman</button>
+    </div>
+  </div>
+
+  <!-- ── Timeline ── -->
+  <section class="timeline-section">
+    <div class="timeline">
+
+      <!-- 1. Startup Discussions — image left, text right -->
+      <div class="timeline-entry left" data-category="computerclub">
+        <span class="entry-date">18 Sep 2024</span>
+        <div class="timeline-dot"></div>
+        <div class="blog-card blog-card--h">
+          <div class="blog-img-side">
+            <img src="assets/computerClub/Startup-discussions.png" alt="Startup discussions" />
+          </div>
+          <div class="blog-body">
+            <h3>Startup discussions 🚀</h3>
+            <p>Bringing KFUPM alumni back to campus—not as students, but as tech startup founders. Hearing their journeys from university ideas to real-world companies gave us an unfiltered look into the startup ecosystem.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Notion Workshop — image left, text right -->
+      <div class="timeline-entry right" data-category="computerclub">
+        <span class="entry-date">21 Oct 2024</span>
+        <div class="timeline-dot"></div>
+        <div class="blog-card blog-card--h">
+          <div class="blog-img-side">
+            <img src="assets/computerClub/Notion-workshop.png" alt="Notion Workshop" />
+          </div>
+          <div class="blog-body">
+            <h3>Notion Workshop</h3>
+            <p>One of our most fun collaborations was partnering with the Notion Community at KFUPM. We wanted to step away from the traditional tech talks and keep things completely relaxed. This hands-on workshop was just a great excuse to hang out, build out our digital workspaces side-by-side, and see how everyone customizes their setups.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. AI Learning — image left, text right -->
+      <div class="timeline-entry left" data-category="computerclub">
+        <span class="entry-date">31 Oct 2024</span>
+        <div class="timeline-dot"></div>
+        <div class="blog-card blog-card--h">
+          <div class="blog-img-side">
+            <img src="assets/computerClub/AI-learning.png" alt="AI learning!" />
+          </div>
+          <div class="blog-body">
+            <h3>AI learning! 💻</h3>
+            <p>There's learning about AI, and then there's living it for three days straight. Hosted at the inspiring Montshaat venue, this workshop was a masterclass in artificial intelligence. We were guided by a phenomenal presenter who had a knack for bringing intricate AI concepts to life.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. UI/UXing — image left, text right -->
+      <div class="timeline-entry right" data-category="computerclub">
+        <span class="entry-date">2 Dec 2024</span>
+        <div class="timeline-dot"></div>
+        <div class="blog-card blog-card--h">
+          <div class="blog-img-side">
+            <img src="assets/computerClub/UI-UXing.png" alt="UI/UXing" />
+          </div>
+          <div class="blog-body">
+            <h3>UI/UXing 🎨</h3>
+            <p>Sometimes the best way to learn is just hanging out with like-minded people. This UI/UX workshop was all about keeping things friendly and accessible. We stripped away the pressure of a formal class and just spent the time designing &amp; sharing feedback.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. The Solution Hackathon — image top, text bottom -->
+      <div class="timeline-entry left" data-category="computerclub">
+        <span class="entry-date">2 – 4 Feb 2025</span>
+        <div class="timeline-dot"></div>
+        <div class="blog-card blog-card--img-top">
+          <div class="blog-img-top">
+            <img src="assets/computerClub/Solution-hackathon.png" alt="The Solution Hackathon" />
+          </div>
+          <div class="blog-body">
+            <h3>The Solution Hackathon ⭐️</h3>
+            <p>Saving the most unforgettable for last. Partnering with UCL, we organized the Solution Hackathon to challenge students to innovate and craft real software solutions for our university campus. Between managing the event, jumping into insightful workshops, and meeting an incredible crowd of builders, it was a blur of brilliant ideas and unforgettable memories!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Signing Off — text top, image bottom -->
+      <div class="timeline-entry right" data-category="computerclub">
+        <span class="entry-date">4 May 2025</span>
+        <div class="timeline-dot"></div>
+        <div class="blog-card blog-card--img-bottom">
+          <div class="blog-body">
+            <h3>Signing Off: Content, Events, &amp; Great Friends </h3>
+            <p>Leading content creation and event management for the club has been the absolute highlight of my university journey. Between the lines of code and late-night study sessions, getting to collaborate with my closest friends to bring these massive insightful events to life is what I'll remember the most.</p>
+          </div>
+          <div class="blog-img-bottom">
+            <img src="assets/computerClub/Signing-off.png" alt="Signing Off: Content, Events, & Great Friends" />
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <p>Designed and Developed by Joud.</p>
+    <p>Built with HTML, CSS &amp; JS.</p>
+  </footer>
+
+  <script>
+    // Navbar scroll shadow
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    const universitySubs  = document.getElementById('university-subs');
+    const universityCategories = ['computerclub', 'globalresearch', 'freshman'];
+
+    function filterEntries(filter) {
+      document.querySelectorAll('.timeline-entry').forEach(entry => {
+        const cat = entry.dataset.category;
+        let show = false;
+        if (filter === 'university') show = universityCategories.includes(cat);
+        else show = cat === filter;
+        entry.style.display = show ? '' : 'none';
+      });
+    }
+
+    // Hide all entries on load
+    document.querySelectorAll('.timeline-entry').forEach(e => e.style.display = 'none');
+
+    // Main row buttons
+    document.querySelectorAll('.filter-main-row .filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Clear all active states
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+
+        // Show/hide sub-filters
+        if (filter === 'university') {
+          universitySubs.classList.add('visible');
+        } else {
+          universitySubs.classList.remove('visible');
+        }
+
+        filterEntries(filter);
+      });
+    });
+
+    // Sub-row buttons
+    document.querySelectorAll('.sub-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        // Keep parent University visually marked
+        document.querySelector('[data-filter="university"]').classList.add('active');
+        btn.classList.add('active');
+        filterEntries(btn.dataset.filter);
+      });
+    });
+  </script>
+
+</body>
+</html>
