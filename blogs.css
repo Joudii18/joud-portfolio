@@ -12,16 +12,18 @@
 }
 
 :root {
-  --bg:         #1e1e1e;
-  --pink:       #FFA5C5;
-  --green:      #BEEBA9;
-  --card-bg:    #252525;
-  --text:       #ffffff;
-  --text-muted: rgba(255, 255, 255, 0.7);
-  --border:     rgba(255, 255, 255, 0.2);
-  --font:       'Bellefair', serif;
+  --bg:           #1e1e1e;
+  --pink:         #FFA5C5;
+  --green:        #BEEBA9;
+  --card-bg:      #252525;
+  --text:         #ffffff;
+  --text-muted:   rgba(255, 255, 255, 0.7);
+  --border:       rgba(255, 255, 255, 0.2);
+  --font:         'Bellefair', serif;
   --timeline-line: rgba(190, 235, 169, 0.3);
-  --dot:        #BEEBA9;
+  --dot:          #BEEBA9;
+  --page-width:   1200px;
+  --page-pad:     6%;
 }
 
 body {
@@ -83,7 +85,9 @@ body {
 
 /* ── Page Header ── */
 .page-header {
-  padding: 9rem 5% 2.5rem;
+  padding: 9rem var(--page-pad) 2.5rem;
+  max-width: var(--page-width);
+  margin: 0 auto;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -329,6 +333,69 @@ body {
   margin: 0.15rem 0;
 }
 
+/* ── Blog List (blogs.html index) ── */
+.blog-list {
+  padding: 0 var(--page-pad) 6rem;
+  max-width: var(--page-width);
+  margin: 0 auto;
+}
+
+.blog-divider {
+  height: 1px;
+  background: var(--border);
+}
+
+.blog-entry {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 2.5rem;
+  padding: 2.8rem 0;
+  align-items: start;
+}
+
+.blog-entry-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding-top: 0.25rem;
+}
+
+.blog-entry-date {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.blog-entry-read {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.blog-entry-title {
+  font-family: var(--font);
+  font-size: 1.55rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 0.65rem;
+}
+
+.blog-entry-excerpt {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.85;
+  margin-bottom: 1rem;
+}
+
+.blog-entry-link {
+  font-size: 0.95rem;
+  color: var(--green);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.blog-entry-link:hover {
+  opacity: 0.7;
+}
+
 /* ── Responsive ── */
 @media (max-width: 700px) {
   .timeline::before {
@@ -354,5 +421,11 @@ body {
   .header-sparkle {
     width: 48px;
     height: 48px;
+  }
+
+  .blog-entry {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 2rem 0;
   }
 }
