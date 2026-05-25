@@ -443,6 +443,100 @@
 .horse { grid-column: 2; grid-row: 1; margin-top: 9rem;}
 .meras { grid-column: 1; grid-row: 2; }
 
+
+/* ── Awards ────────────────────────────────────────────────── */
+.awards {
+  padding: 2rem 5% 6rem;
+}
+
+.awards h2 {
+  font-family: var(--font);
+  font-size: 2.3rem;
+  color: var(--text);
+  font-weight: 400;
+  margin-bottom: 0.4rem;
+}
+
+
+.awards-subtitle {
+  font-family: var(--font);
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1100px;
+}
+
+/* ── Award Card ── */
+.award-card {
+  background: var(--card-bg);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.award-image {
+  width: 100%;
+  overflow: hidden;
+}
+
+.award-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.award-body {
+  padding: 1.1rem 1.3rem 1.3rem;
+}
+
+.award-card h3 {
+  font-family: var(--font);
+  font-size: 1.05rem;
+  color: var(--text);
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.award-card p {
+  font-family: var(--font);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 0.9rem;
+}
+
+.award-links {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 0.9rem;
+}
+
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 2rem;
+  color: var(--text);
+  text-decoration: none;
+  font-family: var(--font);
+  font-size: 0.82rem;
+  background: transparent;
+  transition: background 0.2s;
+}
+
+.link-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+
 /* ── Contact ────────────────────────────────────────────────── */
 .contact {
   padding: 4rem 5% 6rem;
