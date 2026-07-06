@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Horse Racing DB — Joud</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="project_page.css" />
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <a href="../index.html" class="nav-logo">
+      <img src="../assets/sparkles/whiteSparkle.png" alt="" class="nav-star" />
+      <span>Joud</span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html">Projects</a>
+      <a href="../blogs.html">Blogs</a>
+    </div>
+  </nav>
+
+  <div class="project-cover-wrapper">
+    <img src="../assets/images/HorseDataBaseSystemView.png" alt="Horse Racing Database System screenshot" />
+  </div>
+
+  <div class="article-hero">
+    <a href="../projects.html" class="article-back">← Back to Projects</a>
+    <h1 class="article-title">Horse Racing Database System</h1>
+    <p class="article-subtitle">
+      A full-stack database application for managing horse racing records, built with MySQL as the backend
+      and a Python Streamlit interface as the frontend.
+    </p>
+    <div class="project-meta-row">
+      <span class="meta-tag">MySQL</span>
+      <span class="meta-tag">Python</span>
+      <span class="meta-tag">Streamlit</span>
+      <a href="https://github.com/Joudii18/Horse-Racing-Database-System-.git" class="meta-link" target="_blank" rel="noreferrer">GitHub ↗</a>
+    </div>
+  </div>
+
+  <div class="article-divider"><hr /></div>
+
+  <div class="moments-layout">
+    <div class="moments-content">
+
+      <div class="moment" id="overview">
+        <h2 class="moment-title">Overview</h2>
+        <p class="moment-text">
+          This project implements a complete Horse Racing Database System with a relational MySQL backend
+          and an interactive Streamlit dashboard. It was built as a database course project to practice
+          schema design, normalization, and query writing in a domain that has rich relationships — horses,
+          jockeys, trainers, races, and results.
+        </p>
+        <p class="moment-text">
+          The Streamlit frontend makes the database accessible without needing SQL knowledge, providing
+          forms for data entry and visualizations for race results and standings.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="project-goals">
+        <h2 class="moment-title">Project Goals</h2>
+        <p class="moment-text">
+          The main goal was to practice relational database design from scratch — identifying entities,
+          defining relationships, normalizing to 3NF, and then writing queries that actually answer
+          real questions about the data. Wrapping it in a Streamlit UI meant the database had to be
+          clean enough for a non-technical user to interact with it safely.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="tech-stack">
+        <h2 class="moment-title">Tech Stack</h2>
+        <ul class="tech-list">
+          <li><strong>MySQL</strong> — Relational database engine storing all horse racing data with enforced constraints and indexes.</li>
+          <li><strong>Python</strong> — Application logic, database connection via mysql-connector-python, and data processing.</li>
+          <li><strong>Streamlit</strong> — Rapid frontend framework for building the interactive dashboard with minimal boilerplate.</li>
+          <li><strong>Pandas</strong> — Data manipulation and preparation for display tables and charts.</li>
+        </ul>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="features">
+        <h2 class="moment-title">Features</h2>
+
+        <h3 class="feature-sub-title">Entity Management</h3>
+        <p class="moment-text">
+          The system supports full CRUD operations for all core entities: Horses, Jockeys, Trainers,
+          Owners, Race Tracks, and Races. Each form validates input before writing to the database,
+          preventing constraint violations.
+        </p>
+
+        <h3 class="feature-sub-title">Race Results & Standings</h3>
+        <p class="moment-text">
+          After entering race results, the dashboard automatically calculates standings, win rates per
+          jockey and horse, and tracks performance trends across races. Complex SQL joins power these
+          views without any post-processing in Python.
+        </p>
+
+        <h3 class="feature-sub-title">Advanced Queries</h3>
+        <p class="moment-text">
+          Several pre-built queries answer analytical questions: top-performing jockeys by season,
+          horses with the best win rate per track, and trainer win records. These were written as
+          stored procedures in MySQL for reusability.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="challenges">
+        <h2 class="moment-title">Challenges</h2>
+        <p class="moment-text">
+          The most demanding part was the schema design. Horse racing has complex many-to-many
+          relationships — a horse has one jockey per race, but the same horse and jockey can pair
+          across many races. Getting the junction tables right without creating redundancy took
+          several iterations.
+        </p>
+        <p class="moment-text">
+          Writing efficient queries for the standings view was also tricky. Early versions did too
+          much in Python after fetching all rows; rewriting the aggregations as SQL subqueries
+          made the dashboard noticeably faster.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="learning">
+        <h2 class="moment-title">Learning and Takeaways</h2>
+        <p class="moment-text">
+          Database normalization is not just a theoretical exercise — every shortcut in the schema
+          shows up later as a painful query or a data integrity bug. This project made that lesson
+          very concrete.
+        </p>
+        <p class="moment-text">
+          Streamlit also surprised me with how quickly it can produce a usable interface. For
+          internal tools and data projects, it completely removes the need to build a separate
+          React or HTML frontend just to interact with a database.
+        </p>
+      </div>
+
+    </div>
+
+    <aside class="toc">
+      <p class="toc-heading">Table of Contents</p>
+      <ul class="toc-items">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#project-goals">Project Goals</a></li>
+        <li><a href="#tech-stack">Tech Stack</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a class="toc-sub" href="#features">Entity Management</a></li>
+        <li><a class="toc-sub" href="#features">Race Results</a></li>
+        <li><a class="toc-sub" href="#features">Advanced Queries</a></li>
+        <li><a href="#challenges">Challenges</a></li>
+        <li><a href="#learning">Learning & Takeaways</a></li>
+      </ul>
+    </aside>
+  </div>
+
+  <footer class="footer">
+    <p>Designed and Developed by Joud.</p>
+    <p>Built with HTML, CSS &amp; JS.</p>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+    });
+    const tocLinks = document.querySelectorAll('.toc-items a');
+    const sections = document.querySelectorAll('.moment');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.toc-items a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+  <script src="../cursor.js"></script>
+</body>
+</html>

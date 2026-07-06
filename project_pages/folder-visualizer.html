@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Folder Visualizer — Joud</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="project_page.css" />
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <a href="../index.html" class="nav-logo">
+      <img src="../assets/sparkles/whiteSparkle.png" alt="" class="nav-star" />
+      <span>Joud</span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html">Projects</a>
+      <a href="../blogs.html">Blogs</a>
+    </div>
+  </nav>
+
+  <div class="project-cover-wrapper">
+    <img src="../assets/images/SWE316.jpeg" alt="Folder Visualizer screenshot" />
+  </div>
+
+  <div class="article-hero">
+    <a href="../projects.html" class="article-back">← Back to Projects</a>
+    <h1 class="article-title">Folder Visualization Application</h1>
+    <p class="article-subtitle">
+      A C# application demonstrating the Composite Design Pattern — folders and files are treated
+      uniformly, with two swappable visualization strategies for displaying the file tree.
+    </p>
+    <div class="project-meta-row">
+      <span class="meta-tag">C#</span>
+      <span class="meta-tag">Design Patterns</span>
+      <a href="https://github.com/Joudii18/Folder-Visualizer-Application.git" class="meta-link" target="_blank" rel="noreferrer">GitHub ↗</a>
+    </div>
+  </div>
+
+  <div class="article-divider"><hr /></div>
+
+  <div class="moments-layout">
+    <div class="moments-content">
+
+      <div class="moment" id="overview">
+        <h2 class="moment-title">Overview</h2>
+        <p class="moment-text">
+          The Folder Visualization Application is a C# project built for SWE316 as a focused demonstration
+          of two classic design patterns working together: the Composite Pattern and the Strategy Pattern.
+          The core idea is simple — a folder can contain files and other folders, and the application
+          must be able to treat them identically when rendering.
+        </p>
+        <p class="moment-text">
+          Two visualization strategies are available: an indented tree view (similar to a file explorer)
+          and a flat list view showing full paths. Switching between them requires no changes to the
+          folder/file classes themselves.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="project-goals">
+        <h2 class="moment-title">Project Goals</h2>
+        <p class="moment-text">
+          The goal was to write code that would clearly illustrate why the Composite Pattern is useful —
+          not by describing it in a comment, but by showing that adding a new component type to the tree
+          requires no changes to the rendering logic. The second goal was to combine it with the Strategy
+          Pattern to demonstrate how two patterns compose cleanly.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="tech-stack">
+        <h2 class="moment-title">Tech Stack</h2>
+        <ul class="tech-list">
+          <li><strong>C#</strong> — Object-oriented implementation with interfaces, abstract classes, and polymorphism.</li>
+          <li><strong>Composite Pattern</strong> — Unified interface for both File and Folder components.</li>
+          <li><strong>Strategy Pattern</strong> — Swappable rendering algorithms injected at runtime.</li>
+          <li><strong>.NET Console / WinForms</strong> — Lightweight UI for demonstrating the visualization output.</li>
+        </ul>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="features">
+        <h2 class="moment-title">Features</h2>
+
+        <h3 class="feature-sub-title">Composite Tree Structure</h3>
+        <p class="moment-text">
+          Both File and Folder implement the same IComponent interface. Folders maintain a list of
+          children (which can be files or other folders), and the render operation recurses naturally
+          through the tree without any instanceof checks or type branching.
+        </p>
+
+        <h3 class="feature-sub-title">Tree View Strategy</h3>
+        <p class="moment-text">
+          The first visualization strategy renders an indented, hierarchical tree — exactly like the
+          left panel of a file explorer. Depth is tracked recursively and each level adds an indent
+          level for clear visual nesting.
+        </p>
+
+        <h3 class="feature-sub-title">Flat List Strategy</h3>
+        <p class="moment-text">
+          The second strategy renders all files as a flat list with their full paths. This is useful
+          for quickly seeing all files in a folder tree without the hierarchy, similar to a recursive
+          directory listing command.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="challenges">
+        <h2 class="moment-title">Challenges</h2>
+        <p class="moment-text">
+          The initial challenge was designing the IComponent interface so it could be shared by both
+          leaves (files) and composites (folders) without forcing files to implement operations that
+          only make sense for folders (like AddChild). The solution was to have default no-op implementations
+          on the base class rather than forcing all implementors to provide them.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="learning">
+        <h2 class="moment-title">Learning and Takeaways</h2>
+        <p class="moment-text">
+          The Composite Pattern clicked into place once I saw it remove a conditional branch I'd
+          previously needed: "if this is a folder, recurse; if it's a file, print." The whole point
+          of the pattern is to make that check unnecessary. Once I rewrote it that way, the code
+          became noticeably cleaner.
+        </p>
+        <p class="moment-text">
+          Combining two patterns in one project also showed me that patterns aren't mutually exclusive
+          — they solve different axes of the same design problem and often fit together naturally.
+        </p>
+      </div>
+
+    </div>
+
+    <aside class="toc">
+      <p class="toc-heading">Table of Contents</p>
+      <ul class="toc-items">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#project-goals">Project Goals</a></li>
+        <li><a href="#tech-stack">Tech Stack</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a class="toc-sub" href="#features">Composite Tree</a></li>
+        <li><a class="toc-sub" href="#features">Tree View Strategy</a></li>
+        <li><a class="toc-sub" href="#features">Flat List Strategy</a></li>
+        <li><a href="#challenges">Challenges</a></li>
+        <li><a href="#learning">Learning & Takeaways</a></li>
+      </ul>
+    </aside>
+  </div>
+
+  <footer class="footer">
+    <p>Designed and Developed by Joud.</p>
+    <p>Built with HTML, CSS &amp; JS.</p>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+    });
+    const tocLinks = document.querySelectorAll('.toc-items a');
+    const sections = document.querySelectorAll('.moment');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.toc-items a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+  <script src="../cursor.js"></script>
+</body>
+</html>

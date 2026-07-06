@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gesture Email Sorter — Joud</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="project_page.css" />
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <a href="../index.html" class="nav-logo">
+      <img src="../assets/sparkles/whiteSparkle.png" alt="" class="nav-star" />
+      <span>Joud</span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html">Projects</a>
+      <a href="../blogs.html">Blogs</a>
+    </div>
+  </nav>
+
+  <div class="project-cover-wrapper">
+    <img src="../assets/images/gestureEmail.jpeg" alt="Gesture Email Sorter screenshot" />
+  </div>
+
+  <div class="article-hero">
+    <a href="../projects.html" class="article-back">← Back to Projects</a>
+    <h1 class="article-title">Gesture Email Sorter</h1>
+    <p class="article-subtitle">
+      Sort your accumulated piles of email using simple hand gestures detected by your webcam —
+      a fun, alternative interface for tackling inbox overload.
+    </p>
+    <div class="project-meta-row">
+      <span class="meta-tag">Python</span>
+      <span class="meta-tag">React</span>
+      <span class="meta-tag">Mediapipe</span>
+      <a href="https://gesture-email-sorter-production.up.railway.app" class="meta-link" target="_blank" rel="noreferrer">Live Site ↗</a>
+    </div>
+  </div>
+
+  <div class="article-divider"><hr /></div>
+
+  <div class="moments-layout">
+    <div class="moments-content">
+
+      <div class="moment" id="overview">
+        <h2 class="moment-title">Overview</h2>
+        <p class="moment-text">
+          Gesture Email Sorter is a web app that replaces click-and-drag email management with hand
+          gesture controls. Your webcam feeds into a Mediapipe hand tracking model running in a
+          Python backend, which maps recognized gestures to actions — swipe left to archive,
+          swipe right to keep, pinch to mark important.
+        </p>
+        <p class="moment-text">
+          The React frontend displays emails one at a time and animates them based on the detected
+          gesture, giving real-time visual feedback before the action is committed. It was deployed
+          on Railway with the Python backend serving the gesture detection via WebSocket.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="project-goals">
+        <h2 class="moment-title">Project Goals</h2>
+        <p class="moment-text">
+          The idea came from a frustration with the monotony of email triage — clicking the same
+          actions hundreds of times is numbing. The goal was to make the process more physical and
+          engaging, while exploring computer vision as a practical interface layer rather than just
+          a research topic.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="tech-stack">
+        <h2 class="moment-title">Tech Stack</h2>
+        <ul class="tech-list">
+          <li><strong>Python + Flask</strong> — Backend server handling the Mediapipe model inference and WebSocket communication.</li>
+          <li><strong>Mediapipe</strong> — Google's hand landmark detection library, running 21-point hand skeleton tracking in real time.</li>
+          <li><strong>React</strong> — Frontend UI displaying emails with gesture-reactive animations.</li>
+          <li><strong>WebSocket</strong> — Low-latency bidirectional channel between the Python backend and the React frontend.</li>
+          <li><strong>Railway</strong> — Deployment platform hosting both the Python backend and the React frontend.</li>
+        </ul>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="features">
+        <h2 class="moment-title">Features</h2>
+
+        <h3 class="feature-sub-title">Real-time Hand Tracking</h3>
+        <p class="moment-text">
+          Mediapipe processes each webcam frame and extracts 21 hand landmarks in real time.
+          Custom gesture classifiers built on top of the landmark coordinates recognize swipe
+          direction, pinch, and fist gestures with low false-positive rates.
+        </p>
+
+        <h3 class="feature-sub-title">Gesture-to-Action Mapping</h3>
+        <p class="moment-text">
+          Each gesture maps to an email action: swipe right to keep in inbox, swipe left to archive,
+          thumbs up to mark as important, closed fist to delete. The mapping is designed to feel
+          intuitive — actions that feel like they make sense for the gesture.
+        </p>
+
+        <h3 class="feature-sub-title">Animated Feedback</h3>
+        <p class="moment-text">
+          The email card animates in the direction of the detected gesture before the action commits,
+          giving users a chance to see what's about to happen. This prevents accidental sorting
+          from ambiguous gestures and makes the experience feel responsive and satisfying.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="challenges">
+        <h2 class="moment-title">Challenges</h2>
+        <p class="moment-text">
+          Mediapipe's accuracy varies significantly with lighting conditions and background complexity.
+          In poor lighting, landmark detection becomes unreliable enough to cause false positives.
+          Adding a confidence threshold filter before dispatching any action reduced accidental
+          triggers substantially, but it also made the system feel slightly less responsive.
+        </p>
+        <p class="moment-text">
+          The WebSocket latency between gesture detection in the Python backend and the React animation
+          also required careful handling — if a frame drop caused a brief gap in landmark data, the
+          frontend needed to smoothly handle the absence of a gesture signal without freezing.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="learning">
+        <h2 class="moment-title">Learning and Takeaways</h2>
+        <p class="moment-text">
+          Building a computer vision application for a real user-facing product is humbling. In a
+          controlled demo environment, gesture detection feels magical. In a real office with mixed
+          lighting and background clutter, it needs significantly more robustness work. Edge cases
+          in CV are pervasive and hard to anticipate.
+        </p>
+        <p class="moment-text">
+          The WebSocket architecture also taught me a lot about real-time data flow between a Python
+          backend and a React frontend — a pattern I've reused since for other projects involving
+          live data streams.
+        </p>
+      </div>
+
+    </div>
+
+    <aside class="toc">
+      <p class="toc-heading">Table of Contents</p>
+      <ul class="toc-items">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#project-goals">Project Goals</a></li>
+        <li><a href="#tech-stack">Tech Stack</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a class="toc-sub" href="#features">Hand Tracking</a></li>
+        <li><a class="toc-sub" href="#features">Gesture Mapping</a></li>
+        <li><a class="toc-sub" href="#features">Animated Feedback</a></li>
+        <li><a href="#challenges">Challenges</a></li>
+        <li><a href="#learning">Learning & Takeaways</a></li>
+      </ul>
+    </aside>
+  </div>
+
+  <footer class="footer">
+    <p>Designed and Developed by Joud.</p>
+    <p>Built with HTML, CSS &amp; JS.</p>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+    });
+    const tocLinks = document.querySelectorAll('.toc-items a');
+    const sections = document.querySelectorAll('.moment');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.toc-items a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+  <script src="../cursor.js"></script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Structures Project — Joud</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="project_page.css" />
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <a href="../index.html" class="nav-logo">
+      <img src="../assets/sparkles/whiteSparkle.png" alt="" class="nav-star" />
+      <span>Joud</span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html">Projects</a>
+      <a href="../blogs.html">Blogs</a>
+    </div>
+  </nav>
+
+  <div class="project-cover-wrapper">
+    <img src="../assets/images/DataStructures.png" alt="Data Structures project screenshot" />
+  </div>
+
+  <div class="article-hero">
+    <a href="../projects.html" class="article-back">← Back to Projects</a>
+    <h1 class="article-title">Data Structures Course Project</h1>
+    <p class="article-subtitle">
+      A multi-index Student Records Management System built in Java, implementing multiple data
+      structures to enable fast lookups across different attributes simultaneously.
+    </p>
+    <div class="project-meta-row">
+      <span class="meta-tag">Java</span>
+      <a href="https://github.com/Joudii18/Data-Structures-Projects.git" class="meta-link" target="_blank" rel="noreferrer">GitHub ↗</a>
+    </div>
+  </div>
+
+  <div class="article-divider"><hr /></div>
+
+  <div class="moments-layout">
+    <div class="moments-content">
+
+      <div class="moment" id="overview">
+        <h2 class="moment-title">Overview</h2>
+        <p class="moment-text">
+          This project implements a Student Records Management System in Java that stores and retrieves
+          student data using multiple data structures in parallel. The key design challenge is that the
+          same student record must be efficiently searchable by student ID, by name, and by GPA —
+          each requiring a different underlying structure optimized for that type of lookup.
+        </p>
+        <p class="moment-text">
+          It was the capstone project for a Data Structures course, requiring the implementation of
+          multiple structures from scratch rather than relying on Java's standard library collections.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="project-goals">
+        <h2 class="moment-title">Project Goals</h2>
+        <p class="moment-text">
+          The goal was to deeply understand how different data structures make different operations fast —
+          and why there's no single structure that wins in all cases. By building the same conceptual
+          index three different ways, the trade-offs between hash tables, sorted arrays, and trees
+          became concrete rather than theoretical.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="tech-stack">
+        <h2 class="moment-title">Tech Stack</h2>
+        <ul class="tech-list">
+          <li><strong>Java</strong> — Primary language; leveraging OOP for the multi-index architecture.</li>
+          <li><strong>Hash Table (custom)</strong> — For O(1) average-case lookup by student ID.</li>
+          <li><strong>Balanced BST (custom)</strong> — For ordered range queries on GPA.</li>
+          <li><strong>Linked List / Sorted Array</strong> — For alphabetical name lookups and iteration.</li>
+        </ul>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="features">
+        <h2 class="moment-title">Features</h2>
+
+        <h3 class="feature-sub-title">Multi-Index Architecture</h3>
+        <p class="moment-text">
+          Every record insertion updates all three indexes simultaneously. Any update or deletion
+          must keep all indexes in sync. This constraint made the architecture more demanding than
+          maintaining a single structure, mirroring how real databases manage multiple indexes.
+        </p>
+
+        <h3 class="feature-sub-title">CRUD Operations</h3>
+        <p class="moment-text">
+          Full create, read, update, and delete support across all indexes. Updates are particularly
+          complex — changing a student's GPA requires finding and removing the old entry in the BST
+          and inserting the new value, while the hash table and name index remain unaffected.
+        </p>
+
+        <h3 class="feature-sub-title">Range Queries</h3>
+        <p class="moment-text">
+          The BST enables efficient range queries: find all students with a GPA between 3.0 and 3.5,
+          or list all students in alphabetical order. These operations are O(log n + k) on the tree,
+          which would be O(n) on an unsorted structure.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="challenges">
+        <h2 class="moment-title">Challenges</h2>
+        <p class="moment-text">
+          Keeping all three indexes consistent under concurrent modifications was the hardest problem.
+          A deletion that partially succeeds — removing from the hash table but failing before the BST
+          removal — leaves the data in an inconsistent state. Implementing proper rollback logic without
+          full transaction support required careful ordering of operations.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="learning">
+        <h2 class="moment-title">Learning and Takeaways</h2>
+        <p class="moment-text">
+          This project made Big-O notation feel real. The difference between O(1) and O(n) lookup
+          is invisible at 10 records but enormous at 10,000. Building each structure and then running
+          comparative benchmarks made that concrete.
+        </p>
+        <p class="moment-text">
+          It also gave me early intuition about why database indexes exist and what they cost —
+          every index speeds up reads but slows down writes. There's no free lunch.
+        </p>
+      </div>
+
+    </div>
+
+    <aside class="toc">
+      <p class="toc-heading">Table of Contents</p>
+      <ul class="toc-items">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#project-goals">Project Goals</a></li>
+        <li><a href="#tech-stack">Tech Stack</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a class="toc-sub" href="#features">Multi-Index Architecture</a></li>
+        <li><a class="toc-sub" href="#features">CRUD Operations</a></li>
+        <li><a class="toc-sub" href="#features">Range Queries</a></li>
+        <li><a href="#challenges">Challenges</a></li>
+        <li><a href="#learning">Learning & Takeaways</a></li>
+      </ul>
+    </aside>
+  </div>
+
+  <footer class="footer">
+    <p>Designed and Developed by Joud.</p>
+    <p>Built with HTML, CSS &amp; JS.</p>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+    });
+    const tocLinks = document.querySelectorAll('.toc-items a');
+    const sections = document.querySelectorAll('.moment');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.toc-items a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+  <script src="../cursor.js"></script>
+</body>
+</html>

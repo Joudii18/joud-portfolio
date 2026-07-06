@@ -1,0 +1,210 @@
+/* ================================================================
+   project_page.css — Individual project detail pages
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bellefair&display=swap');
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg:         #1e1e1e;
+  --pink:       #FFA5C5;
+  --green:      #BEEBA9;
+  --card-bg:    #252525;
+  --text:       #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.7);
+  --border:     rgba(255, 255, 255, 0.15);
+  --font:       'Bellefair', serif;
+  --page-width: 1200px;
+  --page-pad:   6%;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+}
+
+/* ── Navbar ── */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem var(--page-pad);
+  background: rgba(30, 30, 30, 0.85);
+  backdrop-filter: blur(8px);
+}
+.navbar.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.4); }
+.nav-logo {
+  display: flex; align-items: center; gap: 0.7rem;
+  font-family: var(--font); font-size: 1.4rem;
+  color: var(--text); text-decoration: none;
+}
+.nav-star { width: 25px; height: 25px; }
+.nav-links { display: flex; gap: 2rem; }
+.nav-links a {
+  color: var(--text); text-decoration: none;
+  font-family: var(--font); font-size: 1rem; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--green); }
+
+/* ── Cover Image ── */
+.project-cover-wrapper {
+  margin-top: 70px;
+  width: 100%;
+  height: 480px;
+  overflow: hidden;
+  background: var(--card-bg);
+}
+.project-cover-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+/* ── Article Hero (title area) ── */
+.article-hero {
+  padding: 3.5rem var(--page-pad) 2.5rem;
+  max-width: var(--page-width);
+  margin: 0 auto;
+}
+.article-back {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  font-size: 0.9rem; color: var(--text-muted);
+  text-decoration: none; margin-bottom: 2rem; transition: color 0.2s;
+}
+.article-back:hover { color: var(--green); }
+
+.article-title {
+  font-family: var(--font);
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 400; line-height: 1.15;
+  margin-bottom: 0.8rem;
+}
+.article-subtitle {
+  font-size: 1.05rem; color: var(--text-muted);
+  line-height: 1.85; max-width: 700px; margin-top: 0.6rem;
+}
+
+/* Tags + links row */
+.project-meta-row {
+  display: flex; flex-wrap: wrap;
+  align-items: center; gap: 0.6rem; margin-top: 1.4rem;
+}
+.meta-tag {
+  font-size: 0.78rem;
+  background: rgba(255, 165, 197, 0.1);
+  border: 1px solid rgba(255, 165, 197, 0.3);
+  color: var(--pink); padding: 0.2rem 0.75rem; border-radius: 2rem;
+}
+.meta-link {
+  font-size: 0.85rem; color: var(--text-muted); text-decoration: none;
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  border: 1px solid var(--border); padding: 0.22rem 0.85rem;
+  border-radius: 2rem; transition: color 0.2s, border-color 0.2s;
+}
+.meta-link:hover { color: var(--green); border-color: var(--green); }
+
+/* ── Divider ── */
+.article-divider { max-width: var(--page-width); margin: 0 auto; padding: 0 var(--page-pad); }
+.article-divider hr { border: none; border-top: 1px solid var(--border); }
+
+/* ── Two-column layout ── */
+.moments-layout {
+  display: grid;
+  grid-template-columns: 1fr 230px;
+  gap: 5rem;
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 4rem var(--page-pad) 7rem;
+  align-items: start;
+}
+
+/* ── Content sections ── */
+.moment { margin-bottom: 5rem; }
+
+.moment-title {
+  font-family: var(--font);
+  font-size: 1.6rem; font-weight: 400;
+  color: var(--text); margin-bottom: 1.3rem;
+  border-left: 3px solid var(--green);
+  padding-left: 0.75rem;
+}
+
+.moment-text {
+  font-size: 1rem; color: var(--text-muted);
+  line-height: 1.95; margin-bottom: 0.9rem;
+}
+
+/* In-section image */
+.moment-image {
+  width: 100%; border-radius: 16px;
+  overflow: hidden; margin: 1.2rem 0; background: var(--card-bg);
+}
+.moment-image img {
+  width: 100%; height: 380px; object-fit: cover; display: block;
+}
+
+/* Tech stack list */
+.tech-list { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; margin-top: 0.6rem; }
+.tech-list li {
+  font-size: 1rem; color: var(--text-muted);
+  line-height: 1.75; padding-left: 1.3rem; position: relative;
+}
+.tech-list li::before { content: '·'; position: absolute; left: 0; color: var(--green); font-size: 1.2rem; }
+.tech-list li strong { color: var(--text); }
+
+/* Feature subsection heading */
+.feature-sub-title {
+  font-family: var(--font); font-size: 1.15rem; font-weight: 400;
+  color: var(--text); margin: 1.8rem 0 0.7rem;
+}
+
+/* Separator */
+.moment-separator { height: 1px; background: var(--border); margin-bottom: 5rem; opacity: 0.4; }
+
+/* ── Table of Contents ── */
+.toc { position: sticky; top: 100px; }
+.toc-heading {
+  font-family: var(--font); font-size: 1rem; font-weight: 400;
+  color: var(--text); margin-bottom: 1.2rem;
+}
+.toc-items { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+.toc-items a {
+  font-size: 0.88rem; color: var(--text-muted);
+  text-decoration: none; line-height: 1.4; display: block; transition: color 0.2s;
+}
+.toc-items a:hover { color: var(--text); }
+.toc-items a.active { color: var(--green); }
+.toc-sub { padding-left: 1rem; font-size: 0.82rem !important; color: rgba(255,255,255,0.5) !important; }
+.toc-sub.active { color: var(--green) !important; }
+
+/* ── Footer ── */
+.footer {
+  text-align: center; padding: 2rem;
+  font-family: var(--font); font-size: 1rem;
+  color: rgba(255,255,255,0.4);
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+.footer p { margin: 0.15rem 0; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .moments-layout { grid-template-columns: 1fr; gap: 0; }
+  .toc { display: none; }
+  .project-cover-wrapper { height: 300px; }
+}
+@media (max-width: 640px) {
+  .article-title { font-size: 2rem; }
+  .project-cover-wrapper { height: 220px; }
+  .moment-image img { height: 240px; }
+}

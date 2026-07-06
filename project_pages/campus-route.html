@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Route Visualization — Joud</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="project_page.css" />
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <a href="../index.html" class="nav-logo">
+      <img src="../assets/sparkles/whiteSparkle.png" alt="" class="nav-star" />
+      <span>Joud</span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html">Projects</a>
+      <a href="../blogs.html">Blogs</a>
+    </div>
+  </nav>
+
+  <div class="project-cover-wrapper">
+    <img src="../assets/images/RouteMaping.jpeg" alt="Campus Route Visualization screenshot" />
+  </div>
+
+  <div class="article-hero">
+    <a href="../projects.html" class="article-back">← Back to Projects</a>
+    <h1 class="article-title">Campus Route Visualization</h1>
+    <p class="article-subtitle">
+      Reads a Term Schedule Excel file, extracts course locations, and visualizes the optimal route
+      between class buildings for a given weekday — built to practice core OOP design principles.
+    </p>
+    <div class="project-meta-row">
+      <span class="meta-tag">C#</span>
+      <span class="meta-tag">Design Patterns</span>
+      <a href="https://github.com/Joudii18/Campus-Route-Visualization-Application-.git" class="meta-link" target="_blank" rel="noreferrer">GitHub ↗</a>
+    </div>
+  </div>
+
+  <div class="article-divider"><hr /></div>
+
+  <div class="moments-layout">
+    <div class="moments-content">
+
+      <div class="moment" id="overview">
+        <h2 class="moment-title">Overview</h2>
+        <p class="moment-text">
+          Campus Route Visualization is a C# desktop application built for the SWE316 software engineering course.
+          It reads a student's term schedule from an Excel file, parses the course information and building codes,
+          then lets the user enter a list of CRNs and a weekday to see the walking route between their classes
+          on a campus map.
+        </p>
+        <p class="moment-text">
+          The project was built specifically to practice Abstraction and Encapsulation, the Single Responsibility
+          Principle, and the Open-Closed Principle — making the design intentionally pattern-forward rather than
+          the simplest possible implementation.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="project-goals">
+        <h2 class="moment-title">Project Goals</h2>
+        <p class="moment-text">
+          The goal was to take a real, relatable problem — figuring out how to walk from one class to the next —
+          and use it as a canvas for demonstrating clean OOP design. Each design decision had to be justifiable
+          in terms of a specific principle: why is this class responsible for only one thing? Where is this
+          open for extension but closed for modification?
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="tech-stack">
+        <h2 class="moment-title">Tech Stack</h2>
+        <ul class="tech-list">
+          <li><strong>C#</strong> — Primary language, leveraging strong typing and OOP capabilities.</li>
+          <li><strong>EPPlus / ClosedXML</strong> — Library for reading and parsing Excel schedule files.</li>
+          <li><strong>WinForms / Custom Drawing</strong> — Campus map rendering and route overlay.</li>
+          <li><strong>Design Patterns</strong> — Strategy pattern for route algorithms, Repository pattern for data access.</li>
+        </ul>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="features">
+        <h2 class="moment-title">Features</h2>
+
+        <h3 class="feature-sub-title">Schedule Parsing</h3>
+        <p class="moment-text">
+          The app reads any KFUPM-format Term Schedule Excel export, extracts course CRNs, building codes,
+          room numbers, and time slots. The parser is isolated in its own class layer, making it easy to
+          support different schedule formats without changing the rest of the system.
+        </p>
+
+        <h3 class="feature-sub-title">Route Visualization</h3>
+        <p class="moment-text">
+          Once a weekday is selected, the app renders the buildings as nodes on a campus map canvas and
+          draws the route connecting them in chronological class order, giving a clear visual of how
+          much walking is involved between back-to-back classes.
+        </p>
+
+        <h3 class="feature-sub-title">OOP Design Patterns Applied</h3>
+        <p class="moment-text">
+          The codebase demonstrates Abstraction through interfaces separating concerns, Encapsulation
+          by hiding internal building coordinate logic, SRP by ensuring each class has one reason to
+          change, and OCP by using abstractions so new building layouts can be added without modifying
+          existing classes.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="challenges">
+        <h2 class="moment-title">Challenges</h2>
+        <p class="moment-text">
+          The hardest part was mapping building codes from the schedule file to actual coordinates on the
+          campus map image. The coordinate system had to be calibrated manually against a real campus
+          map, which involved a fair amount of trial-and-error pixel alignment.
+        </p>
+        <p class="moment-text">
+          Applying OOP principles strictly also made some things more verbose than a quick script would be.
+          Knowing when a principle adds genuine value versus when it's over-engineering is still
+          something I'm calibrating.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="learning">
+        <h2 class="moment-title">Learning and Takeaways</h2>
+        <p class="moment-text">
+          This project made OOP principles tangible in a way that lectures alone don't. Seeing SRP save
+          you from a painful refactor — because you isolated the Excel parser early — is worth more
+          than any diagram explaining why you should do it.
+        </p>
+        <p class="moment-text">
+          It also reinforced that design patterns exist to solve specific problems. Applying them without
+          a concrete reason just adds complexity. The OCP is only valuable if you actually need the
+          extension point it creates.
+        </p>
+      </div>
+
+    </div>
+
+    <aside class="toc">
+      <p class="toc-heading">Table of Contents</p>
+      <ul class="toc-items">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#project-goals">Project Goals</a></li>
+        <li><a href="#tech-stack">Tech Stack</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a class="toc-sub" href="#features">Schedule Parsing</a></li>
+        <li><a class="toc-sub" href="#features">Route Visualization</a></li>
+        <li><a class="toc-sub" href="#features">Design Patterns</a></li>
+        <li><a href="#challenges">Challenges</a></li>
+        <li><a href="#learning">Learning & Takeaways</a></li>
+      </ul>
+    </aside>
+  </div>
+
+  <footer class="footer">
+    <p>Designed and Developed by Joud.</p>
+    <p>Built with HTML, CSS &amp; JS.</p>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+    });
+    const tocLinks = document.querySelectorAll('.toc-items a');
+    const sections = document.querySelectorAll('.moment');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.toc-items a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+  <script src="../cursor.js"></script>
+</body>
+</html>

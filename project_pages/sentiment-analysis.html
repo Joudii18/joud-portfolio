@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sentiment Analysis — Joud</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="project_page.css" />
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <a href="../index.html" class="nav-logo">
+      <img src="../assets/sparkles/whiteSparkle.png" alt="" class="nav-star" />
+      <span>Joud</span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html">Projects</a>
+      <a href="../blogs.html">Blogs</a>
+    </div>
+  </nav>
+
+  <div class="project-cover-wrapper">
+    <img src="../assets/images/AI.jpeg" alt="Social Media Sentiment Analysis screenshot" />
+  </div>
+
+  <div class="article-hero">
+    <a href="../projects.html" class="article-back">← Back to Projects</a>
+    <h1 class="article-title">Social Media Sentiment Analysis</h1>
+    <p class="article-subtitle">
+      A machine learning pipeline that processes a social media dataset and compares multiple models —
+      K-NN, SVM, and CNN — for classifying posts as positive, negative, or neutral.
+    </p>
+    <div class="project-meta-row">
+      <span class="meta-tag">Python</span>
+      <span class="meta-tag">AI / ML</span>
+      <a href="https://github.com/Joudii18/Social-Media-Sentiment-Analysis.git" class="meta-link" target="_blank" rel="noreferrer">GitHub ↗</a>
+    </div>
+  </div>
+
+  <div class="article-divider"><hr /></div>
+
+  <div class="moments-layout">
+    <div class="moments-content">
+
+      <div class="moment" id="overview">
+        <h2 class="moment-title">Overview</h2>
+        <p class="moment-text">
+          This project was built for a COE292 (AI) course and focuses on building and comparing
+          three different machine learning classifiers for sentiment analysis on social media data.
+          The dataset contains thousands of social media posts labeled as positive, negative, or neutral.
+        </p>
+        <p class="moment-text">
+          Rather than picking one model and optimizing it, the project intentionally implements
+          three fundamentally different approaches — a distance-based model (K-NN), a margin-based
+          model (SVM), and a deep learning model (CNN) — to understand when each performs better
+          and why.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="project-goals">
+        <h2 class="moment-title">Project Goals</h2>
+        <p class="moment-text">
+          The primary goal was comparative: which model performs best on this specific dataset,
+          and under what conditions? The secondary goal was to build a proper ML pipeline from
+          scratch — preprocessing, feature extraction, training, evaluation — rather than just
+          calling a pre-trained model.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="tech-stack">
+        <h2 class="moment-title">Tech Stack</h2>
+        <ul class="tech-list">
+          <li><strong>Python</strong> — Core language for all data processing, model training, and evaluation.</li>
+          <li><strong>scikit-learn</strong> — K-NN and SVM implementations, along with preprocessing pipelines and metrics.</li>
+          <li><strong>TensorFlow / Keras</strong> — CNN architecture for sequence-based text classification.</li>
+          <li><strong>NLTK / spaCy</strong> — Text preprocessing: tokenization, stopword removal, stemming.</li>
+          <li><strong>Pandas & Matplotlib</strong> — Data exploration, class distribution analysis, and results visualization.</li>
+        </ul>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="features">
+        <h2 class="moment-title">Features</h2>
+
+        <h3 class="feature-sub-title">Preprocessing Pipeline</h3>
+        <p class="moment-text">
+          Social media text is noisy — it contains hashtags, emoji, slang, misspellings, and mixed
+          languages. The preprocessing pipeline handles cleaning, tokenization, stopword removal,
+          and vectorization (TF-IDF for K-NN/SVM, embedding layers for CNN).
+        </p>
+
+        <h3 class="feature-sub-title">Three-model Comparison</h3>
+        <p class="moment-text">
+          K-NN, SVM, and CNN are all trained on the same dataset split and evaluated on the same
+          held-out test set. Accuracy, precision, recall, and F1 scores are reported per class
+          and overall, enabling a fair apples-to-apples comparison.
+        </p>
+
+        <h3 class="feature-sub-title">Confusion Matrix Visualization</h3>
+        <p class="moment-text">
+          Confusion matrices and per-class performance charts make it clear where each model
+          struggles. The CNN, for example, handles ambiguous "neutral" posts better than K-NN
+          but requires significantly more compute to train.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="challenges">
+        <h2 class="moment-title">Challenges</h2>
+        <p class="moment-text">
+          Class imbalance was the biggest issue — the dataset had far more neutral posts than
+          positive or negative ones. Naive training produced a model that predicted "neutral" for
+          almost everything and still achieved decent accuracy. Resampling and class-weighted
+          training were needed to get meaningful results on the minority classes.
+        </p>
+        <p class="moment-text">
+          The CNN also required significant hyperparameter tuning — learning rate, embedding size,
+          kernel size, dropout rate — which was time-consuming without GPU access.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="learning">
+        <h2 class="moment-title">Learning and Takeaways</h2>
+        <p class="moment-text">
+          Accuracy is a misleading metric on imbalanced datasets. This project made that lesson
+          visceral — a model that ignores the minority class entirely can look great on accuracy
+          while being completely useless in practice. F1 score and confusion matrices tell the
+          real story.
+        </p>
+        <p class="moment-text">
+          The comparison also showed that "better" depends entirely on context. SVM consistently
+          outperformed K-NN with a fraction of the inference time. The CNN beat both on F1 but
+          took 10x longer to train. Choosing a model is always a trade-off, not a universal ranking.
+        </p>
+      </div>
+
+    </div>
+
+    <aside class="toc">
+      <p class="toc-heading">Table of Contents</p>
+      <ul class="toc-items">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#project-goals">Project Goals</a></li>
+        <li><a href="#tech-stack">Tech Stack</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a class="toc-sub" href="#features">Preprocessing Pipeline</a></li>
+        <li><a class="toc-sub" href="#features">Three-model Comparison</a></li>
+        <li><a class="toc-sub" href="#features">Confusion Matrix</a></li>
+        <li><a href="#challenges">Challenges</a></li>
+        <li><a href="#learning">Learning & Takeaways</a></li>
+      </ul>
+    </aside>
+  </div>
+
+  <footer class="footer">
+    <p>Designed and Developed by Joud.</p>
+    <p>Built with HTML, CSS &amp; JS.</p>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+    });
+    const tocLinks = document.querySelectorAll('.toc-items a');
+    const sections = document.querySelectorAll('.moment');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.toc-items a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+  <script src="../cursor.js"></script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Score Call — Joud</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="project_page.css" />
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <a href="../index.html" class="nav-logo">
+      <img src="../assets/sparkles/whiteSparkle.png" alt="" class="nav-star" />
+      <span>Joud</span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html">Projects</a>
+      <a href="../blogs.html">Blogs</a>
+    </div>
+  </nav>
+
+  <div class="project-cover-wrapper">
+    <img src="../assets/images/wc.jpeg" alt="Score Call screenshot" />
+  </div>
+
+  <div class="article-hero">
+    <a href="../projects.html" class="article-back">← Back to Projects</a>
+    <h1 class="article-title">Score Call ⚽</h1>
+    <p class="article-subtitle">
+      A World Cup 2026 score prediction game for groups — create a room, share a code, lock in
+      your predictions, and watch your group leaderboard build across the whole tournament.
+    </p>
+    <div class="project-meta-row">
+      <span class="meta-tag">HTML</span>
+      <span class="meta-tag">CSS</span>
+      <span class="meta-tag">JavaScript</span>
+      <a href="https://score-call-dran.vercel.app/" class="meta-link" target="_blank" rel="noreferrer">Live Site ↗</a>
+    </div>
+  </div>
+
+  <div class="article-divider"><hr /></div>
+
+  <div class="moments-layout">
+    <div class="moments-content">
+
+      <div class="moment" id="overview">
+        <h2 class="moment-title">Overview</h2>
+        <p class="moment-text">
+          Score Call is a prediction game built for World Cup 2026. The concept is simple: create a
+          private room, share the code with your group, and everyone submits their score prediction
+          for each match before it starts. Points are awarded based on how close your prediction is —
+          3 points for an exact score, 2 for the correct winner with a close score, 1 for the right
+          winner. A running leaderboard tracks standings across the entire tournament.
+        </p>
+        <p class="moment-text">
+          It was built quickly to be ready before the tournament kicked off — the constraint was
+          "done and shareable within a few days."
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="project-goals">
+        <h2 class="moment-title">Project Goals</h2>
+        <p class="moment-text">
+          The goal was a fun, low-friction way for a group of friends to have skin in every World Cup
+          match without running a complex fantasy football setup. Joining should take under 30 seconds,
+          predicting a score should take under 5 seconds, and the leaderboard should be satisfying to
+          watch evolve over 64 games.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="tech-stack">
+        <h2 class="moment-title">Tech Stack</h2>
+        <ul class="tech-list">
+          <li><strong>HTML & CSS</strong> — Clean, mobile-optimized layout built to work on phones since most predictions happen on the go.</li>
+          <li><strong>JavaScript</strong> — Room management, prediction locking, scoring logic, and leaderboard calculations.</li>
+          <li><strong>LocalStorage / Backend</strong> — Persistent storage for room state, predictions, and match results across sessions.</li>
+          <li><strong>Vercel</strong> — Fast deployment with automatic preview URLs for testing.</li>
+        </ul>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="features">
+        <h2 class="moment-title">Features</h2>
+
+        <h3 class="feature-sub-title">Room System</h3>
+        <p class="moment-text">
+          Any user can create a private room and receive a short shareable code. Anyone with the code
+          can join, submit their name, and start predicting. Rooms are isolated — your group's
+          predictions and leaderboard are private.
+        </p>
+
+        <h3 class="feature-sub-title">Prediction Locking</h3>
+        <p class="moment-text">
+          Each match has a submission window that closes at kickoff. Once locked, predictions are
+          frozen and cannot be edited. This creates the right amount of tension — you have to commit
+          before the match starts, just like in real sports betting.
+        </p>
+
+        <h3 class="feature-sub-title">Live Leaderboard</h3>
+        <p class="moment-text">
+          As match results are entered, the leaderboard updates in real time across all group members.
+          The point system (3 pts exact, 2 pts close, 1 pt right winner) keeps the game competitive
+          even when someone gets lucky with an exact score early on.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="challenges">
+        <h2 class="moment-title">Challenges</h2>
+        <p class="moment-text">
+          Building a multi-user, real-time leaderboard in vanilla JavaScript without a proper backend
+          required careful decisions about state synchronization. Making sure all members in a room
+          see consistent data — especially when results are being entered — was the most technically
+          demanding part of the project.
+        </p>
+        <p class="moment-text">
+          The prediction locking mechanism also needed to be bulletproof on mobile, where users might
+          close the tab mid-submission. Edge cases in form state required defensive saving logic.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="learning">
+        <h2 class="moment-title">Learning and Takeaways</h2>
+        <p class="moment-text">
+          Score Call reinforced that real users stress-test your assumptions instantly. Within the
+          first hour of sharing it with friends, three bugs were found that never appeared in local
+          testing — all related to mobile browser quirks and unexpected network conditions. Shipping
+          early and fixing fast beats delayed perfection.
+        </p>
+        <p class="moment-text">
+          It also showed me that the simpler the concept, the easier it is to get people to actually
+          use something. Every friend group has a World Cup prediction pool; making it digital and
+          automatic was all the pitch it needed.
+        </p>
+      </div>
+
+    </div>
+
+    <aside class="toc">
+      <p class="toc-heading">Table of Contents</p>
+      <ul class="toc-items">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#project-goals">Project Goals</a></li>
+        <li><a href="#tech-stack">Tech Stack</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a class="toc-sub" href="#features">Room System</a></li>
+        <li><a class="toc-sub" href="#features">Prediction Locking</a></li>
+        <li><a class="toc-sub" href="#features">Live Leaderboard</a></li>
+        <li><a href="#challenges">Challenges</a></li>
+        <li><a href="#learning">Learning & Takeaways</a></li>
+      </ul>
+    </aside>
+  </div>
+
+  <footer class="footer">
+    <p>Designed and Developed by Joud.</p>
+    <p>Built with HTML, CSS &amp; JS.</p>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+    });
+    const tocLinks = document.querySelectorAll('.toc-items a');
+    const sections = document.querySelectorAll('.moment');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.toc-items a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+  <script src="../cursor.js"></script>
+</body>
+</html>

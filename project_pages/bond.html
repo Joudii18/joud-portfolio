@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bond — Joud</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="project_page.css" />
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <a href="../index.html" class="nav-logo">
+      <img src="../assets/sparkles/whiteSparkle.png" alt="" class="nav-star" />
+      <span>Joud</span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html">Projects</a>
+      <a href="../blogs.html">Blogs</a>
+    </div>
+  </nav>
+
+  <div class="project-cover-wrapper">
+    <img src="../assets/images/BondView.png" alt="Bond app screenshot" />
+  </div>
+
+  <div class="article-hero">
+    <a href="../projects.html" class="article-back">← Back to Projects</a>
+    <h1 class="article-title">Bond — Group Habit Tracker</h1>
+    <p class="article-subtitle">
+      Bond turns your daily goals into shared experiences inside Rooms, where you and your
+      friends, family, or teammates support each other, check in, and keep streaks alive together.
+    </p>
+    <div class="project-meta-row">
+      <span class="meta-tag">Flutter</span>
+      <span class="meta-tag">Dart</span>
+      <span class="meta-tag">Firebase</span>
+      <a href="https://github.com/Joudii18/Bond-app.git" class="meta-link" target="_blank" rel="noreferrer">GitHub ↗</a>
+      <a href="https://apps.apple.com/sa/app/bond-group-habit-tracker/id6757323090" class="meta-link" target="_blank" rel="noreferrer">App Store ↗</a>
+    </div>
+  </div>
+
+  <div class="article-divider"><hr /></div>
+
+  <div class="moments-layout">
+    <div class="moments-content">
+
+      <div class="moment" id="overview">
+        <h2 class="moment-title">Overview</h2>
+        <p class="moment-text">
+          Bond is a mobile habit tracker built around the idea that accountability is easier with people you actually care about.
+          Instead of tracking habits alone, Bond places them inside shared Rooms — private spaces where a group of people
+          can see each other's check-ins, celebrate streaks, and gently nudge each other when someone falls behind.
+        </p>
+        <p class="moment-text">
+          The app is live on the App Store and has been used by real groups of friends and study circles. It was my first
+          independently shipped iOS app — from design to deployment.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="project-goals">
+        <h2 class="moment-title">Project Goals</h2>
+        <p class="moment-text">
+          Habit trackers are everywhere, but nearly all of them are solo experiences. Bond was built to test one hypothesis:
+          if your friends can see whether you showed up today, are you more likely to show up? The goal was to create
+          the smallest, most friction-free version of that social layer — no complex feeds, no social pressure, just
+          a quiet group that keeps each other honest.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="tech-stack">
+        <h2 class="moment-title">Tech Stack</h2>
+        <ul class="tech-list">
+          <li><strong>Flutter & Dart</strong> — Cross-platform mobile framework for a consistent iOS-first experience.</li>
+          <li><strong>Firebase Firestore</strong> — Real-time NoSQL database syncing check-ins across all Room members instantly.</li>
+          <li><strong>Firebase Auth</strong> — Handles account creation, sign-in, and session management.</li>
+          <li><strong>Firebase Cloud Messaging</strong> — Push notifications for streak reminders and group activity.</li>
+        </ul>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="features">
+        <h2 class="moment-title">Features</h2>
+
+        <h3 class="feature-sub-title">Rooms System</h3>
+        <p class="moment-text">
+          The core unit of Bond is a Room — a private space you create and invite others into. Each Room has its own
+          set of habits that members track together. You can be in multiple Rooms at once, keeping your fitness group
+          separate from your study group, for example.
+        </p>
+
+        <h3 class="feature-sub-title">Daily Check-ins & Streaks</h3>
+        <p class="moment-text">
+          Every day, members tap to mark a habit complete. Bond calculates and displays each person's current streak,
+          building a friendly competitive layer without needing to add any explicit gamification. Seeing a friend on
+          a 30-day streak is motivation enough.
+        </p>
+
+        <h3 class="feature-sub-title">Real-time Sync</h3>
+        <p class="moment-text">
+          Powered by Firestore's real-time listeners, check-ins appear for all Room members the moment they happen —
+          no refresh needed. This instant feedback loop is what makes the social accountability feel alive rather than
+          like just another database entry.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="challenges">
+        <h2 class="moment-title">Challenges</h2>
+        <p class="moment-text">
+          The trickiest part was designing the Firestore data model to keep read costs manageable while still enabling
+          real-time group updates. Early versions queried too broadly, causing slow loads on larger rooms. Restructuring
+          the collections around Rooms (rather than users) fixed both the performance and the cost.
+        </p>
+        <p class="moment-text">
+          Getting through Apple's App Store review process as an independent developer was also a learning curve —
+          the first submission was rejected over push notification entitlement language, which required reworking
+          the privacy description copy before resubmitting.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="learning">
+        <h2 class="moment-title">Learning and Takeaways</h2>
+        <p class="moment-text">
+          Bond was the first project where I owned every layer — design, frontend, backend, and deployment. The
+          biggest lesson was how much the data model shapes the user experience. Getting the Firestore schema right
+          early would have saved several refactoring sessions.
+        </p>
+        <p class="moment-text">
+          Shipping to the App Store also taught me that the last 10% of a project (store metadata, screenshots,
+          privacy policy, review compliance) takes as long as the first 90%. Real shipping is a different skill
+          from building.
+        </p>
+      </div>
+
+    </div>
+
+    <aside class="toc">
+      <p class="toc-heading">Table of Contents</p>
+      <ul class="toc-items">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#project-goals">Project Goals</a></li>
+        <li><a href="#tech-stack">Tech Stack</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a class="toc-sub" href="#features">Rooms System</a></li>
+        <li><a class="toc-sub" href="#features">Check-ins & Streaks</a></li>
+        <li><a class="toc-sub" href="#features">Real-time Sync</a></li>
+        <li><a href="#challenges">Challenges</a></li>
+        <li><a href="#learning">Learning & Takeaways</a></li>
+      </ul>
+    </aside>
+  </div>
+
+  <footer class="footer">
+    <p>Designed and Developed by Joud.</p>
+    <p>Built with HTML, CSS &amp; JS.</p>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    const tocLinks = document.querySelectorAll('.toc-items a');
+    const sections = document.querySelectorAll('.moment');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.toc-items a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+  <script src="../cursor.js"></script>
+</body>
+</html>

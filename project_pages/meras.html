@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meras — Joud</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="project_page.css" />
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <a href="../index.html" class="nav-logo">
+      <img src="../assets/sparkles/whiteSparkle.png" alt="" class="nav-star" />
+      <span>Joud</span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html">Projects</a>
+      <a href="../blogs.html">Blogs</a>
+    </div>
+  </nav>
+
+  <div class="project-cover-wrapper">
+    <img src="../assets/images/meras.png" alt="Meras screenshot" />
+  </div>
+
+  <div class="article-hero">
+    <a href="../projects.html" class="article-back">← Back to Projects</a>
+    <h1 class="article-title">Meras</h1>
+    <p class="article-subtitle">
+      Try real university major tasks, get feedback from actual college students, and make a confident
+      decision about your future — before committing four years of your life.
+    </p>
+    <div class="project-meta-row">
+      <span class="meta-tag">React</span>
+      <span class="meta-tag">Node.js</span>
+      <span class="meta-tag">MongoDB</span>
+      <a href="https://meras1-five.vercel.app" class="meta-link" target="_blank" rel="noreferrer">Live Site ↗</a>
+    </div>
+  </div>
+
+  <div class="article-divider"><hr /></div>
+
+  <div class="moments-layout">
+    <div class="moments-content">
+
+      <div class="moment" id="overview">
+        <h2 class="moment-title">Overview</h2>
+        <p class="moment-text">
+          Meras is a web platform aimed at high school students who are unsure about which university major
+          to choose. Instead of reading generic career descriptions or relying on personality tests, Meras
+          lets students try actual tasks from different majors — the kind of work they'd do in their first
+          semester — and get honest feedback from college students currently studying those fields.
+        </p>
+        <p class="moment-text">
+          The idea came from a real pain point: many students pick majors based on vague impressions or
+          family pressure, then switch or drop out once the reality hits. Meras tries to close that gap
+          before it's too late.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="project-goals">
+        <h2 class="moment-title">Project Goals</h2>
+        <p class="moment-text">
+          The primary goal was to build something that actually helps students, not just a demo. That
+          meant designing real task flows for different majors, a clean submission and review system,
+          and a way for college mentors to provide structured, useful feedback rather than just open text.
+        </p>
+        <p class="moment-text">
+          On the technical side, the goal was to build a proper full-stack application — not just a
+          static site — with authentication, a database, and a real API layer.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="tech-stack">
+        <h2 class="moment-title">Tech Stack</h2>
+        <ul class="tech-list">
+          <li><strong>React</strong> — Component-based frontend for a dynamic, single-page experience.</li>
+          <li><strong>Node.js + Express</strong> — REST API handling authentication, task submissions, and feedback.</li>
+          <li><strong>MongoDB</strong> — Flexible document store well-suited for the varied task and feedback structures across majors.</li>
+          <li><strong>Vercel</strong> — Deployment platform for the frontend, with automatic preview deployments.</li>
+        </ul>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="features">
+        <h2 class="moment-title">Features</h2>
+
+        <h3 class="feature-sub-title">Major Exploration</h3>
+        <p class="moment-text">
+          Students browse available majors and see a realistic preview of what studying that field
+          involves — not a glossy brochure description, but actual task types and difficulty levels
+          as described by current students.
+        </p>
+
+        <h3 class="feature-sub-title">Task Submission System</h3>
+        <p class="moment-text">
+          Each major has a set of tasks a student can attempt and submit. The tasks are designed to
+          be completable in 1–2 hours and represent a real slice of what the major involves.
+        </p>
+
+        <h3 class="feature-sub-title">Mentor Feedback</h3>
+        <p class="moment-text">
+          College students who have signed up as mentors review submissions and provide structured
+          feedback — rating things like aptitude, interest signals, and realistic expectations —
+          giving high schoolers an honest, peer-to-peer perspective.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="challenges">
+        <h2 class="moment-title">Challenges</h2>
+        <p class="moment-text">
+          The hardest design problem was the mentor matching flow. We didn't want a flood of submissions
+          going to the same mentor, and we didn't want students waiting weeks for feedback. Balancing
+          load across mentors with a fair queue was more complex than initially expected.
+        </p>
+        <p class="moment-text">
+          Getting the content right for each major was also a real challenge — you can't fake what a
+          CS task or architecture assignment actually looks like if you want the experience to be honest.
+        </p>
+      </div>
+
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="learning">
+        <h2 class="moment-title">Learning and Takeaways</h2>
+        <p class="moment-text">
+          Meras taught me that product thinking and engineering thinking are different skills that need
+          to happen in parallel. The technical architecture was straightforward, but the hardest work
+          was figuring out what the actual user journey should be — what screens, what information,
+          what friction to add or remove.
+        </p>
+        <p class="moment-text">
+          It also reinforced that MongoDB's schema flexibility is a double-edged sword. It's great
+          early on, but inconsistent document shapes create subtle bugs later. A little upfront
+          schema planning saves a lot of defensive null-checking.
+        </p>
+      </div>
+
+    </div>
+
+    <aside class="toc">
+      <p class="toc-heading">Table of Contents</p>
+      <ul class="toc-items">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#project-goals">Project Goals</a></li>
+        <li><a href="#tech-stack">Tech Stack</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a class="toc-sub" href="#features">Major Exploration</a></li>
+        <li><a class="toc-sub" href="#features">Task Submission</a></li>
+        <li><a class="toc-sub" href="#features">Mentor Feedback</a></li>
+        <li><a href="#challenges">Challenges</a></li>
+        <li><a href="#learning">Learning & Takeaways</a></li>
+      </ul>
+    </aside>
+  </div>
+
+  <footer class="footer">
+    <p>Designed and Developed by Joud.</p>
+    <p>Built with HTML, CSS &amp; JS.</p>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+    });
+    const tocLinks = document.querySelectorAll('.toc-items a');
+    const sections = document.querySelectorAll('.moment');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.toc-items a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+  <script src="../cursor.js"></script>
+</body>
+</html>

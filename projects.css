@@ -248,6 +248,16 @@ body {
   pointer-events: none;
 }
 
+.explore-btn {
+  border-color: rgba(190, 235, 169, 0.4);
+  color: var(--green);
+}
+
+.explore-btn:hover {
+  background: rgba(190, 235, 169, 0.08);
+  border-color: var(--green);
+}
+
 /* ── Footer ── */
 .footer {
   text-align: center;
