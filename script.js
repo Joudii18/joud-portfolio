@@ -31,13 +31,6 @@ document.addEventListener('click', (e) => {
 
 });
 
-// ─── Navbar shadow on scroll ─────────────────────────────────────
-window.addEventListener('scroll', () => {
-  const navbar = document.querySelector('.navbar');
-  if (!navbar) return;
-  navbar.classList.toggle('scrolled', window.scrollY > 20);
-});
-
 // ─── Contact form feedback ───────────────────────────────────────
 document.addEventListener('submit', (e) => {
   if (!e.target.closest('.contact-form')) return;

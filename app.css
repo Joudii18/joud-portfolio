@@ -3,6 +3,39 @@
    ================================================================ */
 
 /* ── Shared helpers ─────────────────────────────────────────── */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  margin-left: 0.4rem;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.08);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -48,7 +81,7 @@
   display: flex;
   align-items: center;
   gap: 0.7rem;
-  font-family: var(--font);
+  font-family: var(--font-display);
   font-size: 1.4rem;
   color: var(--text);
   text-decoration: none;
@@ -100,7 +133,7 @@
 }
 
 .hero-name {
-  font-family: var(--font);
+  font-family: var(--font-display);
   font-size: clamp(5rem, 9vw, 8rem);
   color: var(--text);
   line-height: 0.95;
@@ -210,7 +243,7 @@
 }
 
 .about h2 {
-  font-family: var(--font);
+  font-family: var(--font-display);
   font-size: 2.3rem;
   color: var(--text);
   margin-bottom: 1rem;
@@ -243,7 +276,7 @@
 }
 
 .tech-stack h2 {
-  font-family: var(--font);
+  font-family: var(--font-display);
   font-size: 2.3rem;
   color: var(--text);
   margin-bottom: 2rem;
@@ -263,7 +296,7 @@
 }
 
 .tech-card h3 {
-  font-family: var(--font);
+  font-family: var(--font-display);
   font-size: 1.2rem;
   color: var(--text);
   font-weight: 400;
@@ -301,7 +334,7 @@
 }
 
 .projects h2 {
-  font-family: var(--font);
+  font-family: var(--font-display);
   font-size: 2.3rem;
   color: var(--text);
   font-weight: 400;
@@ -384,7 +417,7 @@
 }
 
 .project-card h3 {
-  font-family: var(--font);
+  font-family: var(--font-display);
   font-size: 1.05rem;
   color: var(--text);
   font-weight: 400;
@@ -450,7 +483,7 @@
 }
 
 .awards h2 {
-  font-family: var(--font);
+  font-family: var(--font-display);
   font-size: 2.3rem;
   color: var(--text);
   font-weight: 400;
@@ -495,7 +528,7 @@
 }
 
 .award-card h3 {
-  font-family: var(--font);
+  font-family: var(--font-display);
   font-size: 1.05rem;
   color: var(--text);
   font-weight: 400;
@@ -543,7 +576,7 @@
 }
 
 .contact h2 {
-  font-family: var(--font);
+  font-family: var(--font-display);
   font-size: 2.3rem;
   color: var(--text);
   font-weight: 400;

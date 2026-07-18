@@ -4,7 +4,16 @@
   // Only run on devices that have a mouse
   if (window.matchMedia('(hover: none)').matches) return;
 
-  const COLORS = ['#ffffff', '#FFA5C5', '#BEEBA9', '#FFE48A', '#ffffff'];
+  const DARK_COLORS  = ['#ffffff', '#FFA5C5', '#BEEBA9', '#FFE48A', '#ffffff'];
+  const LIGHT_COLORS = ['#2E2A24', '#E8628E', '#4F7A3D', '#C98A1E', '#2E2A24'];
+
+  function isLightTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'light';
+  }
+
+  function currentColors() {
+    return isLightTheme() ? LIGHT_COLORS : DARK_COLORS;
+  }
 
   const style = document.createElement('style');
   style.textContent = `
@@ -17,11 +26,20 @@
       transform: translate(-50%, -50%);
       z-index: 99999;
       line-height: 0;
+      color: #ffffff;
+    }
+
+    :root[data-theme="light"] .joud-cursor {
+      color: #2E2A24;
     }
 
     .joud-cursor svg {
       transition: transform 0.15s ease;
       filter: drop-shadow(0 0 4px rgba(255,255,255,0.6));
+    }
+
+    :root[data-theme="light"] .joud-cursor svg {
+      filter: drop-shadow(0 0 4px rgba(0,0,0,0.25));
     }
 
     .joud-trail {
@@ -43,10 +61,11 @@
     </svg>`;
   }
 
-  // Main cursor element
+  // Main cursor element — uses currentColor so it follows the .joud-cursor
+  // CSS color, which flips automatically with the theme toggle.
   const cursor = document.createElement('div');
   cursor.className = 'joud-cursor';
-  cursor.innerHTML = makeSVG('#ffffff', 24);
+  cursor.innerHTML = makeSVG('currentColor', 24);
   document.body.appendChild(cursor);
 
   // Hide cursor when it leaves the window
@@ -87,7 +106,8 @@
   });
 
   function spawnTrail(x, y) {
-    const color = COLORS[Math.floor(Math.random() * COLORS.length)];
+    const colors = currentColors();
+    const color = colors[Math.floor(Math.random() * colors.length)];
     const size  = Math.random() * 10 + 5; // 5–15 px
     const ox    = (Math.random() - 0.5) * 22;
     const oy    = (Math.random() - 0.5) * 22;

@@ -3,11 +3,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <script>try{if(localStorage.getItem('theme')==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects — Joud</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="projects.css" />
 </head>
 <body>
@@ -22,6 +23,7 @@
       <a href="index.html">Home</a>
       <a href="#projects">Projects</a>
       <a href="blogs.html">Blogs</a>
+      <button class="theme-toggle" type="button" aria-label="Switch to light theme">☀️</button>
     </div>
   </nav>
 
@@ -440,11 +442,6 @@
   </footer>
 
   <script>
-    // Navbar scroll shadow
-    window.addEventListener('scroll', () => {
-      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
-    });
-
     // Project filter
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -460,6 +457,7 @@
     });
   </script>
 
+<script src="site.js"></script>
 <script src="cursor.js"></script>
 </body>
 </html>

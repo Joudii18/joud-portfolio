@@ -2,7 +2,7 @@
    project_page.css — Individual project detail pages
    ================================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Bellefair&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Space+Grotesk:wght@400;500;600&display=swap');
 
 *, *::before, *::after {
   margin: 0;
@@ -14,19 +14,68 @@
   --bg:         #1e1e1e;
   --pink:       #FFA5C5;
   --green:      #BEEBA9;
+  --yellow:     #FFE48A;
   --card-bg:    #252525;
   --text:       #ffffff;
   --text-muted: rgba(255, 255, 255, 0.7);
   --border:     rgba(255, 255, 255, 0.15);
-  --font:       'Bellefair', serif;
+  --font-display: 'Fraunces', serif;
+  --font-body:    'Space Grotesk', sans-serif;
+  --font:       var(--font-body);
   --page-width: 1200px;
   --page-pad:   6%;
+}
+
+:root[data-theme="light"] {
+  --bg:         #FBF6EE;
+  --card-bg:    #FFFFFF;
+  --text:       #2E2A24;
+  --text-muted: rgba(46, 42, 36, 0.62);
+  --border:     rgba(46, 42, 36, 0.14);
+  --pink:       #E8628E;
+  --green:      #4F7A3D;
+  --yellow:     #C98A1E;
 }
 
 body {
   background-color: var(--bg);
   color: var(--text);
   font-family: var(--font);
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+/* ── Theme toggle + scroll reveal ── */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  margin-left: 0.4rem;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.08);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ── Navbar ── */
@@ -44,7 +93,7 @@ body {
 .navbar.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.4); }
 .nav-logo {
   display: flex; align-items: center; gap: 0.7rem;
-  font-family: var(--font); font-size: 1.4rem;
+  font-family: var(--font-display); font-size: 1.4rem;
   color: var(--text); text-decoration: none;
 }
 .nav-star { width: 25px; height: 25px; }
@@ -85,7 +134,7 @@ body {
 .article-back:hover { color: var(--green); }
 
 .article-title {
-  font-family: var(--font);
+  font-family: var(--font-display);
   font-size: clamp(2.2rem, 5vw, 3.6rem);
   font-weight: 400; line-height: 1.15;
   margin-bottom: 0.8rem;
@@ -133,7 +182,7 @@ body {
 .moment { margin-bottom: 5rem; }
 
 .moment-title {
-  font-family: var(--font);
+  font-family: var(--font-display);
   font-size: 1.6rem; font-weight: 400;
   color: var(--text); margin-bottom: 1.3rem;
   border-left: 3px solid var(--green);

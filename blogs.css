@@ -2,7 +2,7 @@
    blogs.css — Joud's Portfolio – Blogs Page
    ================================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Bellefair&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Space+Grotesk:wght@400;500;600&display=swap');
 
 /* ── Reset & Variables ── */
 *, *::before, *::after {
@@ -15,21 +15,72 @@
   --bg:           #1e1e1e;
   --pink:         #FFA5C5;
   --green:        #BEEBA9;
+  --yellow:       #FFE48A;
   --card-bg:      #252525;
   --text:         #ffffff;
   --text-muted:   rgba(255, 255, 255, 0.7);
   --border:       rgba(255, 255, 255, 0.2);
-  --font:         'Bellefair', serif;
+  --font-display: 'Fraunces', serif;
+  --font-body:    'Space Grotesk', sans-serif;
+  --font:         var(--font-body);
   --timeline-line: rgba(190, 235, 169, 0.3);
   --dot:          #BEEBA9;
   --page-width:   1200px;
   --page-pad:     6%;
 }
 
+:root[data-theme="light"] {
+  --bg:           #FBF6EE;
+  --card-bg:      #FFFFFF;
+  --text:         #2E2A24;
+  --text-muted:   rgba(46, 42, 36, 0.62);
+  --border:       rgba(46, 42, 36, 0.14);
+  --pink:         #E8628E;
+  --green:        #4F7A3D;
+  --yellow:       #C98A1E;
+  --timeline-line: rgba(79, 122, 61, 0.3);
+  --dot:          #4F7A3D;
+}
+
 body {
   background-color: var(--bg);
   color: var(--text);
   font-family: var(--font);
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+/* ── Theme toggle + scroll reveal ── */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  margin-left: 0.4rem;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.08);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ── Navbar ── */
@@ -55,7 +106,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.7rem;
-  font-family: var(--font);
+  font-family: var(--font-display);
   font-size: 1.4rem;
   color: var(--text);
   text-decoration: none;
@@ -94,7 +145,7 @@ body {
 }
 
 .page-header h1 {
-  font-family: var(--font);
+  font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 5rem);
   color: var(--text);
   font-weight: 400;
@@ -305,7 +356,7 @@ body {
 }
 
 .blog-card h3 {
-  font-family: var(--font);
+  font-family: var(--font-display);
   font-size: 1.15rem;
   color: var(--text);
   font-weight: 400;
@@ -371,7 +422,7 @@ body {
 }
 
 .blog-entry-title {
-  font-family: var(--font);
+  font-family: var(--font-display);
   font-size: 1.55rem;
   font-weight: 400;
   color: var(--text);
