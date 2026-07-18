@@ -196,6 +196,16 @@ body {
   background: var(--card-bg);
   border-radius: 18px;
   overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.3);
+}
+
+:root[data-theme="light"] .project-card:hover {
+  box-shadow: 0 16px 34px rgba(46, 42, 36, 0.14);
 }
 
 .project-image {

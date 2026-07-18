@@ -29,7 +29,31 @@ document.addEventListener('click', (e) => {
     return;
   }
 
+  // Scroll cue → scroll to About
+  if (e.target.closest('.scroll-cue')) {
+    e.preventDefault();
+    smoothScrollTo('about');
+    return;
+  }
+
 });
+
+// ─── Hero sparkle mouse-parallax ──────────────────────────────────
+(function () {
+  const sparkles = document.querySelectorAll('.hero .sparkle');
+  if (!sparkles.length || window.matchMedia('(hover: none)').matches) return;
+
+  window.addEventListener('mousemove', (e) => {
+    const dx = (e.clientX - window.innerWidth / 2) / (window.innerWidth / 2);
+    const dy = (e.clientY - window.innerHeight / 2) / (window.innerHeight / 2);
+
+    sparkles.forEach((el, i) => {
+      const strength = 10 + i * 4;
+      el.style.setProperty('--px', `${dx * strength}px`);
+      el.style.setProperty('--py', `${dy * strength}px`);
+    });
+  });
+})();
 
 // ─── Contact form feedback ───────────────────────────────────────
 document.addEventListener('submit', (e) => {
