@@ -69,7 +69,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.4rem 5%;
-  background: rgba(30, 30, 30, 0.85);
+  background: var(--navbar-bg);
   backdrop-filter: blur(8px);
 }
 

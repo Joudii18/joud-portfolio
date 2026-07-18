@@ -14,6 +14,7 @@
   --green: #BEEBA9;
   --yellow: #FFE48A;
   --card-bg: #252525;
+  --navbar-bg: rgba(30, 30, 30, 0.85);
   --text: #ffffff;
   --text-muted: rgba(255, 255, 255, 0.7);
   --border: rgba(255, 255, 255, 0.2);
@@ -25,6 +26,7 @@
 :root[data-theme="light"] {
   --bg: #FBF6EE;
   --card-bg: #FFFFFF;
+  --navbar-bg: rgba(251, 246, 238, 0.85);
   --text: #2E2A24;
   --text-muted: rgba(46, 42, 36, 0.62);
   --border: rgba(46, 42, 36, 0.14);
