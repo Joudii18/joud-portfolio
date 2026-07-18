@@ -34,6 +34,109 @@
 <br/>Here's an archive of things that I've worked on.</p>
   </section>
 
+  <!-- ── Featured Carousel ── -->
+  <section class="featured-carousel" aria-label="Featured projects">
+    <h2 class="featured-heading"><span class="pink-star">✦</span> Recently Cooking</h2>
+
+    <div class="carousel" id="carousel">
+      <button class="carousel-arrow prev" type="button" aria-label="Previous featured project">‹</button>
+
+      <div class="carousel-viewport">
+        <div class="carousel-track">
+
+          <div class="carousel-slide">
+            <div class="project-card">
+              <div class="project-image">
+                <img src="assets/images/BondView.png" alt="Bond – Group Habit Tracker screenshot" />
+              </div>
+              <div class="project-body">
+                <h3>Bond - Group Habit Tracker</h3>
+                <p>
+                  Bond turns your daily goals into shared experiences inside Rooms, where you and
+                  your friends, family, or teammates can support each other, check in, and keep
+                  your streaks alive together.
+                </p>
+                <div class="tags">
+                  <span class="tag pink-tag">Flutter</span>
+                  <span class="tag pink-tag">Dart</span>
+                  <span class="tag pink-tag">Firebase</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/Joudii18/Bond-app.git" class="link-btn" target="_blank" rel="noreferrer">
+                    <img src="assets/icons/github-svgrepo-com.svg" alt="" /> Github
+                  </a>
+                  <a href="https://apps.apple.com/sa/app/bond-group-habit-tracker/id6757323090" class="link-btn" target="_blank" rel="noreferrer">
+                    ⬇ Download iOS
+                  </a>
+                  <a href="project_pages/bond.html" class="link-btn explore-btn">Explore →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="project-card">
+              <div class="project-image">
+                <img src="assets/images/wc.jpeg" alt="Score Call" />
+              </div>
+              <div class="project-body">
+                <h3>Score Call</h3>
+                <p>
+                  Made a World Cup 2026 score prediction game for groups ⚽ <br> create a room, share a code with your group, everyone locks in their score prediction. 3pts for exact, 2pts close, 1pt near. Leaderboard builds up across the whole World Cup.
+                </p>
+                <div class="tags">
+                  <span class="tag pink-tag">HTML</span>
+                  <span class="tag pink-tag">CSS</span>
+                  <span class="tag pink-tag">JS</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://score-call-dran.vercel.app/" class="link-btn" target="_blank" rel="noreferrer">
+                    Visit
+                  </a>
+                  <a href="project_pages/score-call.html" class="link-btn explore-btn">Explore →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="project-card">
+              <div class="project-image">
+                <img src="assets/images/gestureEmail.jpeg" alt="Gesture Email Sorter" />
+              </div>
+              <div class="project-body">
+                <h3>Gesture Email Sorter</h3>
+                <p>
+                  Sort your accumalted piles of email using simple hand tracking!
+                </p>
+                <div class="tags">
+                  <span class="tag pink-tag">Python</span>
+                  <span class="tag pink-tag">React</span>
+                  <span class="tag pink-tag">Mediapipe</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://gesture-email-sorter-production.up.railway.app" class="link-btn" target="_blank" rel="noreferrer">
+                    Visit
+                  </a>
+                  <a href="project_pages/gesture-email-sorter.html" class="link-btn explore-btn">Explore →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <button class="carousel-arrow next" type="button" aria-label="Next featured project">›</button>
+    </div>
+
+    <div class="carousel-dots">
+      <button class="carousel-dot active" type="button" data-index="0" aria-label="Show slide 1"></button>
+      <button class="carousel-dot" type="button" data-index="1" aria-label="Show slide 2"></button>
+      <button class="carousel-dot" type="button" data-index="2" aria-label="Show slide 3"></button>
+    </div>
+  </section>
+
   <!-- ── Filter Bar ── -->
   <div class="filter-bar">
     <button class="filter-btn active" data-filter="all">All</button>
@@ -442,19 +545,51 @@
   </footer>
 
   <script>
-    // Project filter
+    // Project filter (scoped to the archive grid — leaves the featured carousel alone)
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
 
         const filter = btn.dataset.filter;
-        document.querySelectorAll('.project-card').forEach(card => {
+        document.querySelectorAll('.all-projects .project-card').forEach(card => {
           const match = filter === 'all' || card.dataset.category === filter;
           card.style.display = match ? '' : 'none';
         });
       });
     });
+
+    // Featured projects carousel — auto-rotate, arrows, dots, pause on hover
+    (function () {
+      const carousel = document.getElementById('carousel');
+      const track = carousel.querySelector('.carousel-track');
+      const slides = carousel.querySelectorAll('.carousel-slide');
+      const dots = document.querySelectorAll('.carousel-dot');
+      let index = 0;
+      let timer = null;
+
+      function go(i) {
+        index = (i + slides.length) % slides.length;
+        track.style.transform = `translateX(-${index * (100 / slides.length)}%)`;
+        dots.forEach((dot, di) => dot.classList.toggle('active', di === index));
+      }
+
+      function next() { go(index + 1); }
+
+      function restart() {
+        clearInterval(timer);
+        timer = setInterval(next, 5000);
+      }
+
+      carousel.querySelector('.carousel-arrow.prev').addEventListener('click', () => { go(index - 1); restart(); });
+      carousel.querySelector('.carousel-arrow.next').addEventListener('click', () => { go(index + 1); restart(); });
+      dots.forEach(dot => dot.addEventListener('click', () => { go(+dot.dataset.index); restart(); }));
+
+      carousel.addEventListener('mouseenter', () => clearInterval(timer));
+      carousel.addEventListener('mouseleave', restart);
+
+      restart();
+    })();
   </script>
 
 <script src="site.js"></script>

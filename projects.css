@@ -147,6 +147,104 @@ body {
   color: var(--text-muted);
 }
 
+/* ── Featured Carousel ── */
+.featured-carousel {
+  padding: 0 5% 3rem;
+}
+
+.featured-heading {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.featured-heading .pink-star {
+  color: var(--pink);
+}
+
+.carousel {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.carousel-viewport {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.carousel-track {
+  display: flex;
+  width: 300%;
+  transition: transform 0.5s ease;
+}
+
+.carousel-slide {
+  flex: 0 0 33.3333%;
+  width: 33.3333%;
+  padding: 0 0.4rem;
+  box-sizing: border-box;
+}
+
+.carousel-slide .project-card {
+  height: 100%;
+}
+
+.carousel-arrow {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.carousel-arrow:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: scale(1.08);
+}
+
+:root[data-theme="light"] .carousel-arrow:hover {
+  background: rgba(46, 42, 36, 0.06);
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.2rem;
+}
+
+.carousel-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: none;
+  background: var(--border);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.carousel-dot.active {
+  background: var(--pink);
+  transform: scale(1.25);
+}
+
 /* ── Filter Bar ── */
 .filter-bar {
   display: flex;
