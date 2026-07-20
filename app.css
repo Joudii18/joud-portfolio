@@ -160,7 +160,7 @@
 
 .hero-buttons {
   display: flex;
-  gap: 0.75rem;
+  gap: 0.5rem;
   flex-wrap: wrap;
   animation-delay: 0.46s;
 }
@@ -173,15 +173,14 @@
 .hero-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  padding: 0.85rem 1.2rem;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  padding: 0;
   border: none;
   border-radius: 14px;
   color: var(--text);
   text-decoration: none;
-  font-family: var(--font);
-  font-size: 1.0rem;
-  background: rgba(255, 255, 255, 0.1);
   transition: background 0.2s, transform 0.2s;
 }
 
@@ -207,8 +206,8 @@
 }
 
 .btn-icon img {
-  width: 22px;
-  height: 22px;
+  width: 27px;
+  height: 27px;
 }
 
 .btn-icon.email-icon span {
@@ -297,14 +296,25 @@
 /* ── About Me ───────────────────────────────────────────────── */
 .about {
   padding: 0.01rem 5% 5rem;
-  max-width: 680px;
+  max-width: 980px;
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+}
+
+.about-body {
+  order: 1;
+  flex: 1;
+  min-width: 0;
 }
 
 .about h2 {
+  order: 2;
+  flex: 0 0 200px;
   font-family: var(--font-display);
   font-size: 2.3rem;
   color: var(--text);
-  margin-bottom: 1rem;
+  margin: 0;
   font-weight: 400;
 }
 
@@ -343,12 +353,13 @@
 
 .tech-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 300px));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1.25rem;
+  max-width: 1100px;
 }
 
 .tech-card {
-  background: var(--card-bg);
+  background: transparent;
   border-radius: 14px;
   padding: 1.4rem 1.5rem;
   border-left: 3px solid var(--pink);
@@ -377,19 +388,13 @@
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.5rem;
 }
 
-.green-star {
-  color: var(--green);
-}
-
-.pink-star {
-  color: var(--pink);
-}
-
-.yellow-star {
-  color: var(--yellow);
+.tech-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
 }
 
 /* Tech stack decorations */
@@ -584,21 +589,23 @@
 
 
 .awards-subtitle {
-  font-family: var(--font);
+font-family: var(--font);
   font-size: 1.5rem;
   color: var(--text-muted);
   margin-bottom: 1.5rem;
 }
 
 .awards-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
   max-width: 1100px;
 }
 
 /* ── Award Card ── */
 .award-card {
+  display: flex;
+  align-items: stretch;
   background: var(--card-bg);
   border-radius: 18px;
   overflow: hidden;
@@ -615,18 +622,25 @@
 }
 
 .award-image {
-  width: 100%;
+  flex: 0 0 320px;
   overflow: hidden;
 }
 
 .award-image img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
 .award-body {
-  padding: 1.1rem 1.3rem 1.3rem;
+  flex: 1;
+  min-width: 0;
+  padding: 1.4rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
 }
 
 .award-card h3 {
@@ -791,4 +805,28 @@
   .bond  { grid-column: 1; grid-row: 1; }
   .horse { grid-column: 1; grid-row: 2; margin-top: 0; }
   .meras { grid-column: 1; grid-row: 3; }
+
+  .about {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .about h2 {
+    order: 0;
+    flex: none;
+    margin-bottom: 0.5rem;
+  }
+
+  .about-body {
+    order: 0;
+  }
+
+  .award-card {
+    flex-direction: column;
+  }
+
+  .award-image {
+    flex: none;
+    height: 200px;
+  }
 }
