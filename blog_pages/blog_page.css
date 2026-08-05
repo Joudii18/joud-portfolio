@@ -111,6 +111,8 @@ body {
 
 .nav-star { width: 25px; height: 25px; }
 
+:root[data-theme="light"] .nav-star { content: url("../assets/sparkles-darkmode/black-sparkle.svg"); }
+
 .nav-links {
   display: flex;
   gap: 2rem;
@@ -282,6 +284,36 @@ body {
   height: 460px;
   object-fit: cover;
   display: block;
+}
+
+.some-moment-image {
+  display: inline-block;
+  width: calc(50% - 0.6rem);
+  max-width: 350px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-right: 0.6rem;
+  margin-bottom: 1.4rem;
+  background: var(--card-bg);
+  vertical-align: top;
+  box-sizing: border-box;
+}
+.some-moment-image:last-of-type { margin-right: 0; }
+
+.image-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.4rem;
+}
+.image-row .some-moment-image {
+  display: block;
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  flex: 1 1 0;
+  margin: 0;
 }
 
 .moment-text {

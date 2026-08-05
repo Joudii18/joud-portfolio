@@ -113,6 +113,10 @@ body {
   height: 25px;
 }
 
+:root[data-theme="light"] .nav-star {
+  content: url("assets/sparkles-darkmode/black-sparkle.svg");
+}
+
 .nav-links {
   display: flex;
   gap: 2rem;

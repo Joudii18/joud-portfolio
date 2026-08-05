@@ -119,6 +119,10 @@ body {
   height: 25px;
 }
 
+:root[data-theme="light"] .nav-star {
+  content: url("assets/sparkles-darkmode/black-sparkle.svg");
+}
+
 .nav-links {
   display: flex;
   gap: 2rem;
@@ -166,6 +170,10 @@ body {
   height: 70px;
   margin-top: 0.5rem;
   flex-shrink: 0;
+}
+
+:root[data-theme="light"] .header-sparkle {
+  content: url("assets/sparkles-darkmode/greenSparkle.png");
 }
 
 /* ── Filter Bar ── */
