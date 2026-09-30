@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bellefair&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Space+Grotesk:wght@400;500;600&display=swap');
 
 *,
 *::before,
@@ -12,11 +12,15 @@
   --bg: #1e1e1e;
   --pink: #FFA5C5;
   --green: #BEEBA9;
+  --yellow: #FFE48A;
   --card-bg: #252525;
+  --navbar-bg: rgba(30, 30, 30, 0.85);
   --text: #ffffff;
   --text-muted: rgba(255, 255, 255, 0.7);
   --border: rgba(255, 255, 255, 0.2);
-  --font: 'Bellefair', serif;
+  --font-display: 'Georgia', serif;
+  --font-body: 'Space Grotesk', sans-serif;
+  --font: var(--font-body);
 }
 
 html {
@@ -31,6 +35,7 @@ body {
   font-family: var(--font);
   min-height: 100vh;
   overflow-x: hidden;
+  transition: background-color 0.35s ease, color 0.35s ease;
 }
 
 .app {

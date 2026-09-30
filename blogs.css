@@ -2,7 +2,7 @@
    blogs.css — Joud's Portfolio – Blogs Page
    ================================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Bellefair&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Space+Grotesk:wght@400;500;600&display=swap');
 
 /* ── Reset & Variables ── */
 *, *::before, *::after {
@@ -15,11 +15,15 @@
   --bg:           #1e1e1e;
   --pink:         #FFA5C5;
   --green:        #BEEBA9;
+  --yellow:       #FFE48A;
   --card-bg:      #252525;
+  --navbar-bg:    rgba(30, 30, 30, 0.85);
   --text:         #ffffff;
   --text-muted:   rgba(255, 255, 255, 0.7);
   --border:       rgba(255, 255, 255, 0.2);
-  --font:         'Bellefair', serif;
+  --font-display: 'Fraunces', serif;
+  --font-body:    'Space Grotesk', sans-serif;
+  --font:         var(--font-body);
   --timeline-line: rgba(190, 235, 169, 0.3);
   --dot:          #BEEBA9;
   --page-width:   1200px;
@@ -30,6 +34,19 @@ body {
   background-color: var(--bg);
   color: var(--text);
   font-family: var(--font);
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ── Navbar ── */
@@ -43,7 +60,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1.4rem 5%;
-  background: rgba(30, 30, 30, 0.85);
+  background: var(--navbar-bg);
   backdrop-filter: blur(8px);
 }
 
@@ -55,7 +72,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.7rem;
-  font-family: var(--font);
+  font-family: var(--font-display);
   font-size: 1.4rem;
   color: var(--text);
   text-decoration: none;
@@ -94,7 +111,7 @@ body {
 }
 
 .page-header h1 {
-  font-family: var(--font);
+  font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 5rem);
   color: var(--text);
   font-weight: 400;
@@ -247,6 +264,12 @@ body {
   background: var(--card-bg);
   border-radius: 18px;
   overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.3);
 }
 
 /* ── Layout A: image left, text right ── */
@@ -305,7 +328,7 @@ body {
 }
 
 .blog-card h3 {
-  font-family: var(--font);
+  font-family: var(--font-display);
   font-size: 1.15rem;
   color: var(--text);
   font-weight: 400;
@@ -371,7 +394,7 @@ body {
 }
 
 .blog-entry-title {
-  font-family: var(--font);
+  font-family: var(--font-display);
   font-size: 1.55rem;
   font-weight: 400;
   color: var(--text);

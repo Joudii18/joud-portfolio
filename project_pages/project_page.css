@@ -2,7 +2,7 @@
    project_page.css — Individual project detail pages
    ================================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Bellefair&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Space+Grotesk:wght@400;500;600&display=swap');
 
 *, *::before, *::after {
   margin: 0;
@@ -14,11 +14,15 @@
   --bg:         #1e1e1e;
   --pink:       #FFA5C5;
   --green:      #BEEBA9;
+  --yellow:     #FFE48A;
   --card-bg:    #252525;
+  --navbar-bg:  rgba(30, 30, 30, 0.85);
   --text:       #ffffff;
   --text-muted: rgba(255, 255, 255, 0.7);
   --border:     rgba(255, 255, 255, 0.15);
-  --font:       'Bellefair', serif;
+  --font-display: 'Fraunces', serif;
+  --font-body:    'Space Grotesk', sans-serif;
+  --font:       var(--font-body);
   --page-width: 1200px;
   --page-pad:   6%;
 }
@@ -27,6 +31,19 @@ body {
   background-color: var(--bg);
   color: var(--text);
   font-family: var(--font);
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ── Navbar ── */
@@ -38,13 +55,13 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1.4rem var(--page-pad);
-  background: rgba(30, 30, 30, 0.85);
+  background: var(--navbar-bg);
   backdrop-filter: blur(8px);
 }
 .navbar.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.4); }
 .nav-logo {
   display: flex; align-items: center; gap: 0.7rem;
-  font-family: var(--font); font-size: 1.4rem;
+  font-family: var(--font-display); font-size: 1.4rem;
   color: var(--text); text-decoration: none;
 }
 .nav-star { width: 25px; height: 25px; }
@@ -71,6 +88,32 @@ body {
   display: block;
 }
 
+.building-moment-image {
+  width: 300;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 1.4rem;
+  background: var(--card-bg);
+}
+
+.some-moment-image {
+  display: inline-block;
+  width: min(350px, calc(50% - 0.5rem));
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-right: 1rem;
+  margin-bottom: 1.4rem;
+  background: var(--card-bg);
+  vertical-align: top;
+}
+.some-moment-image:last-of-type { margin-right: 0; }
+
+@media (max-width: 480px) {
+  .some-moment-image { width: min(150px, calc(50% - 0.5rem)); }
+}
+
 /* ── Article Hero (title area) ── */
 .article-hero {
   padding: 3.5rem var(--page-pad) 2.5rem;
@@ -85,7 +128,7 @@ body {
 .article-back:hover { color: var(--green); }
 
 .article-title {
-  font-family: var(--font);
+  font-family: var(--font-display);
   font-size: clamp(2.2rem, 5vw, 3.6rem);
   font-weight: 400; line-height: 1.15;
   margin-bottom: 0.8rem;
@@ -114,6 +157,28 @@ body {
 }
 .meta-link:hover { color: var(--green); border-color: var(--green); }
 
+/* Habit Bank / resource download card */
+.download-card {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem;
+  margin-top: 1.4rem; padding: 1rem 1.3rem;
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 14px;
+}
+.download-info { display: flex; flex-direction: column; gap: 0.2rem; }
+.download-title {
+  font-family: var(--font-display); font-size: 1.05rem; color: var(--text);
+}
+.download-desc { font-size: 0.85rem; color: var(--text-muted); }
+.download-btn {
+  flex-shrink: 0;
+  font-size: 0.85rem; font-weight: 500; color: var(--bg);
+  background: var(--green); text-decoration: none;
+  padding: 0.5rem 1.1rem; border-radius: 2rem;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.download-btn:hover { transform: scale(1.04); opacity: 0.9; }
+
 /* ── Divider ── */
 .article-divider { max-width: var(--page-width); margin: 0 auto; padding: 0 var(--page-pad); }
 .article-divider hr { border: none; border-top: 1px solid var(--border); }
@@ -133,7 +198,7 @@ body {
 .moment { margin-bottom: 5rem; }
 
 .moment-title {
-  font-family: var(--font);
+  font-family: var(--font-display);
   font-size: 1.6rem; font-weight: 400;
   color: var(--text); margin-bottom: 1.3rem;
   border-left: 3px solid var(--green);
@@ -188,6 +253,59 @@ body {
 .toc-sub { padding-left: 1rem; font-size: 0.82rem !important; color: rgba(255,255,255,0.5) !important; }
 .toc-sub.active { color: var(--green) !important; }
 
+/* ── Slide Deck Viewer ── */
+.slideshow {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 0 var(--page-pad) 3rem;
+}
+.slideshow-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.slideshow-viewport {
+  flex: 1;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  border-radius: 18px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+}
+.slideshow-viewport::-webkit-scrollbar { display: none; }
+.slideshow-viewport { scrollbar-width: none; }
+.slideshow-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  scroll-snap-align: start;
+  display: block;
+}
+.slideshow-arrow {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.slideshow-arrow:hover { background: rgba(255, 255, 255, 0.08); transform: scale(1.08); }
+.slideshow-counter {
+  text-align: center;
+  margin-top: 0.9rem;
+  font-family: var(--font);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
 /* ── Footer ── */
 .footer {
   text-align: center; padding: 2rem;
@@ -207,4 +325,5 @@ body {
   .article-title { font-size: 2rem; }
   .project-cover-wrapper { height: 220px; }
   .moment-image img { height: 240px; }
+  .slideshow-arrow { width: 32px; height: 32px; font-size: 1.1rem; }
 }

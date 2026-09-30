@@ -6,7 +6,7 @@
   <title>Campus Route Visualization — Joud</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="project_page.css" />
 </head>
 <body>
@@ -58,6 +58,11 @@
           The project was built specifically to practice Abstraction and Encapsulation, the Single Responsibility
           Principle, and the Open-Closed Principle — making the design intentionally pattern-forward rather than
           the simplest possible implementation.
+        </p>
+
+        <img class="some-moment-image" src="../assets/images/SWE316H1-Lab.png" alt="moment" width="400">
+        <p class="moment-text">
+          Short funny story: I had to work on this HW on a window as it was much easier to code with C# on visual studio, and that unfortunately isn't available on my mac. So I had to visit the lab 3-4 times that week and it was the beginning of our midterm break... Enjoyed it however 
         </p>
       </div>
 
@@ -168,11 +173,7 @@
     <p>Built with HTML, CSS &amp; JS.</p>
   </footer>
 
-  <script>
-    window.addEventListener('scroll', () => {
-      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
-    });
-    const tocLinks = document.querySelectorAll('.toc-items a');
+  <script>    const tocLinks = document.querySelectorAll('.toc-items a');
     const sections = document.querySelectorAll('.moment');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -186,6 +187,7 @@
     sections.forEach(s => observer.observe(s));
   </script>
 
-  <script src="../cursor.js"></script>
+  <script src="../site.js"></script>
+<script src="../cursor.js"></script>
 </body>
 </html>

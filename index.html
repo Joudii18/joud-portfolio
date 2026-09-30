@@ -7,7 +7,7 @@
   <title>Joud — Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="index.css" />
   <link rel="stylesheet" href="app.css" />
 </head>
@@ -40,19 +40,19 @@
           <span class="btn-icon github-icon">
             <img src="assets/icons/github-svgrepo-com.svg" alt="" />
           </span>
-          GitHub
+          
         </a>
         <a href="https://www.linkedin.com/in/joud-aljabri-403832248/" class="hero-btn" target="_blank" rel="noreferrer">
           <span class="btn-icon linkedin-icon">
             <img src="assets/icons/linkedin-svgrepo-com.svg" alt="" />
           </span>
-          LinkedIn
+          
         </a>
         <a href="mailto:joud.jab@gmail.com" class="hero-btn">
           <span class="btn-icon email-icon">
             <img src="assets/icons/email-svgrepo-com.svg" alt="" />
           </span>
-          Email
+          
         </a>
       </div>
     </div>
@@ -62,30 +62,35 @@
     <img src="assets/sparkles/whiteSparkle.png" alt="" class="sparkle sp-white" />
     <img src="assets/sparkles/yellowSun.png"    alt="" class="sparkle sp-yellow" />
     <img src="assets/sparkles/greenSparkle.png" alt="" class="sparkle sp-green" />
+
+    <a href="#about" class="scroll-cue" aria-label="Scroll to About section">
+      <span class="scroll-cue-line"></span>
+      <span class="scroll-cue-arrow">⌄</span>
+    </a>
   </section>
 
   <!-- ── About Me ── -->
-  <section class="about" id="about">
+  <section class="about reveal" id="about">
     <h2>About me</h2>
-    <p class="about-text">
-      A Software Engineering student with a strong focus on mobile and web development and a growing passion for Data Science.
-      Experienced in building real-world applications, with active participation in hackathons and
-      extracurricular technical activities that have sharpened my collaboration and leadership skills.<br />
-      Driven to create scalable, user-centered digital products.
-    </p>
-    <ul class="about-list">
-      <li>🚀 Currently learning Full-Stack Development</li>
-      <li>🎮 When I'm not working, you can find me video gaming</li>
-    </ul>
+    <div class="about-body">
+      <p class="about-text">
+        hey all, I'm a senior software engineering student at KFUPM, and a deeply passionate person about my field of study. I do full-stack development, a bit of product design, while also expanding my knowledge furthur in data sceince as part of collage concentraion. 
+      </p>
+      <ul class="about-list">
+        <li>🚀 Currently immersed in Data Science and Analytics, building an edu-tech AI platform, and leading the KFUPM Tuwaiq Club at our college</li>
+        <li>🎮 When I'm not working, you can find me video gaming</li>
+      </ul>
+    </div>
   </section>
 
-  <!-- ── Tech Stack ── -->
+  
+  <!-- ── Tech Stack 
   <section class="tech-stack" id="tech">
-    <h2>Tech Stack</h2>
+    <h2 class="reveal">Tech Stack</h2>
 
     <div class="tech-grid">
       <div class="tech-card">
-        <h3><span class="green-star">✦</span> Languages</h3>
+        <h3><img src="assets/tech-stack-icons-dark-mode/languages.svg" alt="" class="tech-icon" /> Languages</h3>
         <div class="tags">
           <span class="tag">Java</span>
           <span class="tag">Python</span>
@@ -95,7 +100,7 @@
       </div>
 
       <div class="tech-card">
-        <h3><span class="green-star">✦</span> Front-end Development</h3>
+        <h3><img src="assets/tech-stack-icons-dark-mode/front-end.svg" alt="" class="tech-icon" /> Front-end Development</h3>
         <div class="tags">
           <span class="tag">HTML</span>
           <span class="tag">CSS</span>
@@ -104,7 +109,7 @@
       </div>
 
       <div class="tech-card">
-        <h3><span class="green-star">✦</span> Back-end Development</h3>
+        <h3><img src="assets/tech-stack-icons-dark-mode/back-end.svg" alt="" class="tech-icon" /> Back-end Development</h3>
         <div class="tags">
           <span class="tag">Node.js</span>
           <span class="tag">MySQL</span>
@@ -113,24 +118,24 @@
       </div>
 
       <div class="tech-card">
-        <h3><span class="green-star">✦</span> Mobile Development & Tools</h3>
+        <h3><img src="assets/tech-stack-icons-dark-mode/mobile&amp;tools.svg" alt="" class="tech-icon" /> Mobile Development & Tools</h3>
         <div class="tags">
           <span class="tag">Flutter</span>
           <span class="tag">Figma</span>
           <span class="tag">Git - GitHub</span>
         </div>
       </div>
-    </div>
+    </div> 
 
-    <!-- Decorative -->
+    
     <img src="assets/sparkles/pinkCircle.png" alt="" class="tech-dot" />
     <img src="assets/arrows/wiggleLine.svg"   alt="" class="tech-wiggle" />
-  </section>
+  </section>  ── -->
 
   <!-- ── Projects ── -->
   <section class="projects" id="projects">
-    <h2>Projects</h2>
-    <p class="projects-subtitle">Here's some of my projects that I have worked on.</p>
+    <h2 class="reveal">Projects</h2>
+    <p class="projects-subtitle reveal">Here's some of my projects that I have worked on.</p>
 
     <div class="explore-wrapper">
       <a href="projects.html" class="explore-btn">Explore More →</a>
@@ -142,7 +147,7 @@
       <!-- Bond -->
       <div class="project-card bond">
         <div class="project-image">
-          <img src="assets/images/BondView.png" alt="Bond – Group Habit Tracker screenshot" />
+          <img src="assets/Bond-Images/Cover-Image.jpg" alt="Bond – Group Habit Tracker screenshot" />
         </div>
         <div class="project-body">
           <h3>Bond - Group Habit Tracker</h3>
@@ -220,10 +225,12 @@
 
 
   <!-- ── Awards ── -->
+    
   <section class="awards" id="awards">
-    <h2>Achievements </h2>
-    <p class="awards-subtitle"></p>
-
+    <h2 class="reveal">In Pursuit of Impact </h2>
+    <p class="awards-subtitle reveal">
+Milestones born out of obsession and the pursuit of meaningful impact
+</p>
     <div class = "awards-grid">
       <div class="award-card">
         <div class="award-image">
@@ -268,8 +275,8 @@
 
   <!-- ── Contact ── -->
   <section class="contact" id="contact">
-    <h2>Let's Talk!</h2>
-    <p class="contact-subtitle">
+    <h2 class="reveal">Let's Talk!</h2>
+    <p class="contact-subtitle reveal">
       Have a project in mind? Want to collaborate? Or just want to say hi?
       Drop me a message and I'll get back to you soon.
     </p>
@@ -291,6 +298,7 @@
 
 </div>
 
+<script src="site.js"></script>
 <script src="script.js"></script>
 <script src="cursor.js"></script>
 </body>

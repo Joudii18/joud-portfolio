@@ -6,7 +6,7 @@
   <title>Horse Racing DB — Joud</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="project_page.css" />
 </head>
 <body>
@@ -24,7 +24,7 @@
   </nav>
 
   <div class="project-cover-wrapper">
-    <img src="../assets/images/HorseDataBaseSystemView.png" alt="Horse Racing Database System screenshot" />
+    <img src="../assets/images/horse-riding.png" alt="Horse Racing Database System screenshot" />
   </div>
 
   <div class="article-hero">
@@ -59,6 +59,9 @@
           The Streamlit frontend makes the database accessible without needing SQL knowledge, providing
           forms for data entry and visualizations for race results and standings.
         </p>
+          <img class="some-moment-image" src="../assets/images/Renad&Joud-ICS321.jpg" alt="moment">
+        
+        <p>Working with Renad in building 9, October 2025 💗</p>
       </div>
 
       <div class="moment-separator"></div>
@@ -168,11 +171,7 @@
     <p>Built with HTML, CSS &amp; JS.</p>
   </footer>
 
-  <script>
-    window.addEventListener('scroll', () => {
-      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
-    });
-    const tocLinks = document.querySelectorAll('.toc-items a');
+  <script>    const tocLinks = document.querySelectorAll('.toc-items a');
     const sections = document.querySelectorAll('.moment');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -186,6 +185,7 @@
     sections.forEach(s => observer.observe(s));
   </script>
 
-  <script src="../cursor.js"></script>
+  <script src="../site.js"></script>
+<script src="../cursor.js"></script>
 </body>
 </html>

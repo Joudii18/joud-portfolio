@@ -2,7 +2,7 @@
    projects.css — Joud's Portfolio – All Projects Page
    ================================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Bellefair&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Space+Grotesk:wght@400;500;600&display=swap');
 
 /* ── Reset & Variables ── */
 *, *::before, *::after {
@@ -15,17 +15,34 @@
   --bg:         #1e1e1e;
   --pink:       #FFA5C5;
   --green:      #BEEBA9;
+  --yellow:     #FFE48A;
   --card-bg:    #252525;
+  --navbar-bg:  rgba(30, 30, 30, 0.85);
   --text:       #ffffff;
   --text-muted: rgba(255, 255, 255, 0.7);
   --border:     rgba(255, 255, 255, 0.2);
-  --font:       'Bellefair', serif;
+  --font-display: 'Fraunces', serif;
+  --font-body:    'Space Grotesk', sans-serif;
+  --font:       var(--font-body);
 }
 
 body {
   background-color: var(--bg);
   color: var(--text);
   font-family: var(--font);
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ── Navbar ── */
@@ -39,7 +56,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1.4rem 5%;
-  background: rgba(30, 30, 30, 0.85);
+  background: var(--navbar-bg);
   backdrop-filter: blur(8px);
 }
 
@@ -51,7 +68,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.7rem;
-  font-family: var(--font);
+  font-family: var(--font-display);
   font-size: 1.4rem;
   color: var(--text);
   text-decoration: none;
@@ -85,7 +102,7 @@ body {
 }
 
 .page-header h1 {
-  font-family: var(--font);
+  font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 5rem);
   color: var(--text);
   font-weight: 400;
@@ -96,6 +113,108 @@ body {
   font-family: var(--font);
   font-size: 1.2rem;
   color: var(--text-muted);
+}
+
+/* ── Featured Carousel ── */
+.featured-carousel {
+  padding: 0 5% 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.featured-heading {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.featured-heading .pink-star {
+  color: var(--pink);
+}
+
+.carousel-wrap {
+  width: 100%;
+  max-width: 430px;
+}
+
+.carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.carousel-viewport {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.carousel-track {
+  display: flex;
+  width: 300%;
+  transition: transform 0.5s ease;
+}
+
+.carousel-slide {
+  flex: 0 0 33.3333%;
+  width: 33.3333%;
+  padding: 0 0.4rem;
+  box-sizing: border-box;
+}
+
+.carousel-slide .project-card {
+  height: 100%;
+}
+
+.carousel-arrow {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.carousel-arrow:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: scale(1.08);
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+}
+
+.carousel-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: none;
+  background: var(--border);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.carousel-dot.active {
+  background: var(--pink);
+  transform: scale(1.25);
 }
 
 /* ── Filter Bar ── */
@@ -129,7 +248,6 @@ body {
   color: var(--pink);
 }
 
-
 /* ── Projects Grid ── */
 .all-projects {
   padding: 2rem 5% 6rem;
@@ -147,6 +265,12 @@ body {
   background: var(--card-bg);
   border-radius: 18px;
   overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.3);
 }
 
 .project-image {
@@ -170,7 +294,7 @@ body {
 }
 
 .project-card h3 {
-  font-family: var(--font);
+  font-family: var(--font-display);
   font-size: 1.05rem;
   color: var(--text);
   font-weight: 400;

@@ -7,7 +7,7 @@
   <title>Projects — Joud</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bellefair&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="projects.css" />
 </head>
 <body>
@@ -28,18 +28,123 @@
   <!-- ── Page Header ── -->
   <section class="page-header" id="projects">
     <h1>Projects</h1>
-    <p class="page-subtitle">I love building and creating new project ideas or designing stuff, whether they're fun, engaging, or informative!
+    <p class="page-subtitle">I love building and creating new project ideas or designing stuff
 <br/>Here's an archive of things that I've worked on.</p>
   </section>
+
+  <!-- ── Featured Carousel ── 
+  <section class="featured-carousel" aria-label="Featured projects">
+    <h2 class="featured-heading"><span class="pink-star">✦</span> Recently Cooking</h2>
+
+    <div class="carousel-wrap">
+    <div class="carousel" id="carousel">
+      <button class="carousel-arrow prev" type="button" aria-label="Previous featured project">‹</button>
+
+      <div class="carousel-viewport">
+        <div class="carousel-track">
+
+          <div class="carousel-slide">
+            <div class="project-card">
+              <div class="project-image">
+                <img src="assets/images/BondView.png" alt="Bond – Group Habit Tracker screenshot" />
+              </div>
+              <div class="project-body">
+                <h3>Bond - Group Habit Tracker</h3>
+                <p>
+                  Bond turns your daily goals into shared experiences inside Rooms, where you and
+                  your friends, family, or teammates can support each other, check in, and keep
+                  your streaks alive together.
+                </p>
+                <div class="tags">
+                  <span class="tag pink-tag">Flutter</span>
+                  <span class="tag pink-tag">Dart</span>
+                  <span class="tag pink-tag">Firebase</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/Joudii18/Bond-app.git" class="link-btn" target="_blank" rel="noreferrer">
+                    <img src="assets/icons/github-svgrepo-com.svg" alt="" /> Github
+                  </a>
+                  <a href="https://apps.apple.com/sa/app/bond-group-habit-tracker/id6757323090" class="link-btn" target="_blank" rel="noreferrer">
+                    ⬇ Download iOS
+                  </a>
+                  <a href="project_pages/bond.html" class="link-btn explore-btn">Explore →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="project-card">
+              <div class="project-image">
+                <img src="assets/images/wc.jpeg" alt="Score Call" />
+              </div>
+              <div class="project-body">
+                <h3>Score Call</h3>
+                <p>
+                  Made a World Cup 2026 score prediction game for groups ⚽ <br> create a room, share a code with your group, everyone locks in their score prediction. 3pts for exact, 2pts close, 1pt near. Leaderboard builds up across the whole World Cup.
+                </p>
+                <div class="tags">
+                  <span class="tag pink-tag">HTML</span>
+                  <span class="tag pink-tag">CSS</span>
+                  <span class="tag pink-tag">JS</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://score-call-dran.vercel.app/" class="link-btn" target="_blank" rel="noreferrer">
+                    Visit
+                  </a>
+                  <a href="project_pages/score-call.html" class="link-btn explore-btn">Explore →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="project-card">
+              <div class="project-image">
+                <img src="assets/images/gestureEmail.jpeg" alt="Gesture Email Sorter" />
+              </div>
+              <div class="project-body">
+                <h3>Gesture Email Sorter</h3>
+                <p>
+                  Sort your accumalted piles of email using simple hand tracking!
+                </p>
+                <div class="tags">
+                  <span class="tag pink-tag">Python</span>
+                  <span class="tag pink-tag">React</span>
+                  <span class="tag pink-tag">Mediapipe</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://gesture-email-sorter-production.up.railway.app" class="link-btn" target="_blank" rel="noreferrer">
+                    Visit
+                  </a>
+                  <a href="project_pages/gesture-email-sorter.html" class="link-btn explore-btn">Explore →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <button class="carousel-arrow next" type="button" aria-label="Next featured project">›</button>
+    </div>
+
+    <div class="carousel-dots">
+      <button class="carousel-dot active" type="button" data-index="0" aria-label="Show slide 1"></button>
+      <button class="carousel-dot" type="button" data-index="1" aria-label="Show slide 2"></button>
+      <button class="carousel-dot" type="button" data-index="2" aria-label="Show slide 3"></button>
+    </div>
+    </div>
+  </section> -->
 
   <!-- ── Filter Bar ── -->
   <div class="filter-bar">
     <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="mobile">Mobile</button>
-    <button class="filter-btn" data-filter="web">Web</button>
-    <button class="filter-btn" data-filter="python">Python & Data</button>
-    <button class="filter-btn" data-filter="oop">OOP</button>
-    <button class="filter-btn" data-filter="uiux">UI/UX</button>
+    <button class="filter-btn" data-filter="production">Production</button>
+    <button class="filter-btn" data-filter="academic">Academic</button>
+    <button class="filter-btn" data-filter="data">Data Projects</button>
+    <button class="filter-btn" data-filter="uiux">Product Design & UI/UX</button>
+    <button class="filter-btn" data-filter="creative">Creative Tech ✦</button>
     <button class="filter-btn" data-filter="design">Designs</button>
   </div>
 
@@ -48,9 +153,9 @@
     <div class="projects-grid">
 
       <!-- Bond -->
-      <div class="project-card" data-category="mobile">
+      <div class="project-card" data-category="production">
         <div class="project-image">
-          <img src="assets/images/BondView.png" alt="Bond – Group Habit Tracker screenshot" />
+          <img src="assets/Bond-Images/Cover-Image.jpg" alt="Bond – Group Habit Tracker screenshot" />
         </div>
         <div class="project-body">
           <h3>Bond - Group Habit Tracker</h3>
@@ -65,19 +170,14 @@
             <span class="tag pink-tag">Firebase</span>
           </div>
           <div class="project-links">
-            <a href="https://github.com/Joudii18/Bond-app.git" class="link-btn" target="_blank" rel="noreferrer">
-              <img src="assets/icons/github-svgrepo-com.svg" alt="" /> Github
-            </a>
-            <a href="https://apps.apple.com/sa/app/bond-group-habit-tracker/id6757323090" class="link-btn" target="_blank" rel="noreferrer">
-              ⬇ Download iOS
-            </a>
+         
             <a href="project_pages/bond.html" class="link-btn explore-btn">Explore →</a>
           </div>
         </div>
       </div>
 
       <!-- Horse Racing DB -->
-      <div class="project-card" data-category="python">
+      <div class="project-card" data-category="academic">
         <div class="project-image">
           <img src="assets/images/HorseDataBaseSystemView.png" alt="Horse Racing Database System screenshot" />
         </div>
@@ -92,16 +192,14 @@
             <span class="tag pink-tag">Python (Streamlit)</span>
           </div>
           <div class="project-links">
-            <a href="https://github.com/Joudii18/Horse-Racing-Database-System-.git" class="link-btn" target="_blank" rel="noreferrer">
-              <img src="assets/icons/github-svgrepo-com.svg" alt="" /> Github
-            </a>
+           
             <a href="project_pages/horse-racing-db.html" class="link-btn explore-btn">Explore →</a>
           </div>
         </div>
       </div>
 
       <!-- Meras -->
-      <div class="project-card" data-category="web">
+      <div class="project-card" data-category="production">
         <div class="project-image meras-img">
           <img src="assets/images/meras.png" alt="Meras screenshot" />
         </div>
@@ -127,7 +225,7 @@
       </div>
 
       <!-- SWE316 HW1 -->
-      <div class="project-card" data-category="oop">
+      <div class="project-card" data-category="academic">
         <div class="project-image">
           <img src="assets/images/RouteMaping.jpeg" alt="Route Mapping System screenshot" />
         </div>
@@ -142,16 +240,14 @@
             <span class="tag pink-tag">Design Patterns</span>
           </div>
           <div class="project-links">
-            <a href="https://github.com/Joudii18/Campus-Route-Visualization-Application-.git" class="link-btn" target="_blank" rel="noreferrer">
-              <img src="assets/icons/github-svgrepo-com.svg" alt="" /> Github
-            </a>
+            
             <a href="project_pages/campus-route.html" class="link-btn explore-btn">Explore →</a>
           </div>
         </div>
       </div>
 
        <!-- SWE316 HW2 -->
-      <div class="project-card" data-category="oop">
+      <div class="project-card" data-category="academic">
         <div class="project-image">
           <img src="assets/images/SWE316.jpeg" alt="SWE316 HW2 screenshot" />
         </div>
@@ -166,16 +262,14 @@
             <span class="tag pink-tag">Design Patterns</span>
           </div>
           <div class="project-links">
-            <a href="https://github.com/Joudii18/Folder-Visualizer-Application.git" class="link-btn" target="_blank" rel="noreferrer">
-              <img src="assets/icons/github-svgrepo-com.svg" alt="" /> Github
-            </a>
+           
             <a href="project_pages/folder-visualizer.html" class="link-btn explore-btn">Explore →</a>
           </div>
         </div>
       </div>
 
       <!-- Portfolio -->
-      <div class="project-card" data-category="web">
+      <div class="project-card">
         <div class="project-image">
           <img src="assets/images/Portfolio.jpeg" alt="Portfolio screenshot" />
         </div>
@@ -199,7 +293,7 @@
       </div>
 
       <!-- Customized Survey -->
-      <div class="project-card" data-category="web">
+      <div class="project-card" data-category="creative">
         <div class="project-image">
           <img src="assets/images/survey.jpeg" alt="Customized Survey screenshot" />
         </div>
@@ -220,13 +314,12 @@
             <a href="https://joudii18.github.io/Customized-Survey/" class="link-btn" target="_blank" rel="noreferrer">
               Visit →
             </a>
-            <a href="project_pages/customized-survey.html" class="link-btn explore-btn">Explore →</a>
           </div>
         </div>
       </div>
 
       <!--Data Structure Project-->
-      <div class="project-card" data-category="oop">
+      <div class="project-card" data-category="academic">
         <div class="project-image">
           <img src="assets/images/DataStructures.png" alt="Data Strucutre screenshot" />
         </div>
@@ -239,9 +332,7 @@
             <span class="tag pink-tag">Java</span>
           </div>
           <div class="project-links">
-            <a href="https://github.com/Joudii18/Data-Structures-Projects.git" class="link-btn" target="_blank" rel="noreferrer">
-              <img src="assets/icons/github-svgrepo-com.svg" alt="" /> Github
-            </a>
+            
             <a href="project_pages/data-structures.html" class="link-btn explore-btn">Explore →</a>
           </div>
         </div>
@@ -267,7 +358,7 @@
       </div>
 
       <!--COE292-->
-      <div class="project-card" data-category="python">
+      <div class="project-card" data-category="data">
         <div class="project-image">
           <img src="assets/images/AI.jpeg" alt="AI screenshot" />
         </div>
@@ -281,9 +372,7 @@
             <span class="tag pink-tag">AI</span>
           </div>
           <div class="project-links">
-            <a href="https://github.com/Joudii18/Social-Media-Sentiment-Analysis.git" class="link-btn" target="_blank" rel="noreferrer">
-              <img src="assets/icons/github-svgrepo-com.svg" alt="" /> Github
-            </a>
+           
             <a href="project_pages/sentiment-analysis.html" class="link-btn explore-btn">Explore →</a>
           </div>
         </div>
@@ -302,11 +391,17 @@
           <div class="tags">
             <span class="tag pink-tag">Figma</span>
           </div>
+           <div class="project-links">
+            <a href="https://www.figma.com/proto/HE98rkhBcY8YiY9N4PbngB/Joud-s-UI-Designs?node-id=1087-2304&viewport=68%2C117%2C0.37&t=udVacMnVA0wltnzy-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1087%3A2304&page-id=1087%3A2249" class="link-btn" target="_blank" rel="noopener noreferrer">
+              View
+            </a>
+            
+          </div>
         </div>
       </div>
 
       <!--Vibe-->
-      <div class="project-card" data-category="mobile">
+      <div class="project-card" data-category="creative">
         <div class="project-image">
           <img src="assets/images/MyFrame4.png" alt="Vibe screenshot" />
         </div>
@@ -323,7 +418,7 @@
             <a href="#Vibe-placeholder" class="link-btn coming-soon">
               Coming Soon!
             </a>
-            <a href="project_pages/vibe.html" class="link-btn explore-btn">Explore →</a>
+  
           </div>
         </div>
       </div>
@@ -345,7 +440,7 @@
       </div>
 
       <!--Email Sorter-->
-      <div class="project-card" data-category="web">
+      <div class="project-card" data-category="creative">
         <div class="project-image">
           <img src="assets/images/gestureEmail.jpeg" alt="Gesture Email Sorter" />
         </div>
@@ -360,10 +455,9 @@
             <span class="tag pink-tag">Mediapipe</span>
           </div>
           <div class="project-links">
-            <a href="https://gesture-email-sorter-production.up.railway.app" class="link-btn" target="_blank" rel="noreferrer">
-              Visit
+            <a href="https://github.com/Joudii18/Gesture-Email-Sorter" class="link-btn" target="_blank" rel="noreferrer">
+              <img src="assets/icons/github-svgrepo-com.svg" alt="" /> Github
             </a>
-            <a href="project_pages/gesture-email-sorter.html" class="link-btn explore-btn">Explore →</a>
           </div>
         </div>
       </div>
@@ -385,9 +479,9 @@
       </div>
 
       <!--Score Call-->
-      <div class="project-card" data-category="web">
+      <div class="project-card" data-category="creative">
         <div class="project-image">
-          <img src="assets/images/wc.jpeg" alt="Score Call" />
+          <img src="assets/images/ScoreCallCover.jpeg" alt="Score Call" />
         </div>
         <div class="project-body">
           <h3>Score Call</h3>
@@ -425,7 +519,7 @@
             <a href="https://drive.google.com/drive/folders/1rlh1EDYT8cIoSJkOQiEIRy7KByLCIr3t?usp=share_link" class="link-btn" target="_blank" rel="noreferrer">
               View Booklet
             </a>
-            <a href="project_pages/gsr-booklet.html" class="link-btn explore-btn">Explore →</a>
+           
           </div>
         </div>
       </div>
@@ -440,26 +534,54 @@
   </footer>
 
   <script>
-    // Navbar scroll shadow
-    window.addEventListener('scroll', () => {
-      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
-    });
-
-    // Project filter
+    // Project filter (scoped to the archive grid — leaves the featured carousel alone)
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
 
         const filter = btn.dataset.filter;
-        document.querySelectorAll('.project-card').forEach(card => {
+        document.querySelectorAll('.all-projects .project-card').forEach(card => {
           const match = filter === 'all' || card.dataset.category === filter;
           card.style.display = match ? '' : 'none';
         });
       });
     });
+
+    // Featured projects carousel — auto-rotate, arrows, dots, pause on hover
+    (function () {
+      const carousel = document.getElementById('carousel');
+      const track = carousel.querySelector('.carousel-track');
+      const slides = carousel.querySelectorAll('.carousel-slide');
+      const dots = document.querySelectorAll('.carousel-dot');
+      let index = 0;
+      let timer = null;
+
+      function go(i) {
+        index = (i + slides.length) % slides.length;
+        track.style.transform = `translateX(-${index * (100 / slides.length)}%)`;
+        dots.forEach((dot, di) => dot.classList.toggle('active', di === index));
+      }
+
+      function next() { go(index + 1); }
+
+      function restart() {
+        clearInterval(timer);
+        timer = setInterval(next, 5000);
+      }
+
+      carousel.querySelector('.carousel-arrow.prev').addEventListener('click', () => { go(index - 1); restart(); });
+      carousel.querySelector('.carousel-arrow.next').addEventListener('click', () => { go(index + 1); restart(); });
+      dots.forEach(dot => dot.addEventListener('click', () => { go(+dot.dataset.index); restart(); }));
+
+      carousel.addEventListener('mouseenter', () => clearInterval(timer));
+      carousel.addEventListener('mouseleave', restart);
+
+      restart();
+    })();
   </script>
 
+<script src="site.js"></script>
 <script src="cursor.js"></script>
 </body>
 </html>

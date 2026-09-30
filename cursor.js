@@ -17,6 +17,7 @@
       transform: translate(-50%, -50%);
       z-index: 99999;
       line-height: 0;
+      color: #ffffff;
     }
 
     .joud-cursor svg {
@@ -43,10 +44,10 @@
     </svg>`;
   }
 
-  // Main cursor element
+  // Main cursor element — uses currentColor so it follows the .joud-cursor CSS color.
   const cursor = document.createElement('div');
   cursor.className = 'joud-cursor';
-  cursor.innerHTML = makeSVG('#ffffff', 24);
+  cursor.innerHTML = makeSVG('currentColor', 24);
   document.body.appendChild(cursor);
 
   // Hide cursor when it leaves the window
