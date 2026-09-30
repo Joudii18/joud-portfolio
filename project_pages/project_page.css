@@ -27,18 +27,6 @@
   --page-pad:   6%;
 }
 
-:root[data-theme="light"] {
-  --bg:         #FBF6EE;
-  --card-bg:    #FFFFFF;
-  --navbar-bg:  rgba(251, 246, 238, 0.85);
-  --text:       #2E2A24;
-  --text-muted: rgba(46, 42, 36, 0.62);
-  --border:     rgba(46, 42, 36, 0.14);
-  --pink:       #E8628E;
-  --green:      #4F7A3D;
-  --yellow:     #C98A1E;
-}
-
 body {
   background-color: var(--bg);
   color: var(--text);
@@ -46,29 +34,7 @@ body {
   transition: background-color 0.35s ease, color 0.35s ease;
 }
 
-/* ── Theme toggle + scroll reveal ── */
-.theme-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--text);
-  font-size: 1rem;
-  line-height: 1;
-  cursor: pointer;
-  margin-left: 0.4rem;
-  transition: background 0.2s, transform 0.2s;
-}
-
-.theme-toggle:hover {
-  transform: scale(1.08);
-  background: rgba(255, 255, 255, 0.08);
-}
-
+/* ── Scroll reveal ── */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -99,7 +65,6 @@ body {
   color: var(--text); text-decoration: none;
 }
 .nav-star { width: 25px; height: 25px; }
-:root[data-theme="light"] .nav-star { content: url("../assets/sparkles-darkmode/black-sparkle.svg"); }
 .nav-links { display: flex; gap: 2rem; }
 .nav-links a {
   color: var(--text); text-decoration: none;
@@ -123,8 +88,6 @@ body {
   display: block;
 }
 
-
-
 .building-moment-image {
   width: 300;
   border-radius: 18px;
@@ -133,11 +96,10 @@ body {
   background: var(--card-bg);
 }
 
-
 .some-moment-image {
   display: inline-block;
-  width: 350px;
-  height: 350px;
+  width: min(350px, calc(50% - 0.5rem));
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 18px;
   overflow: hidden;
@@ -149,9 +111,8 @@ body {
 .some-moment-image:last-of-type { margin-right: 0; }
 
 @media (max-width: 480px) {
-  .some-moment-image { width: 150px; height: 150px; }
+  .some-moment-image { width: min(150px, calc(50% - 0.5rem)); }
 }
-
 
 /* ── Article Hero (title area) ── */
 .article-hero {
@@ -337,7 +298,6 @@ body {
   transition: background 0.2s, transform 0.2s;
 }
 .slideshow-arrow:hover { background: rgba(255, 255, 255, 0.08); transform: scale(1.08); }
-:root[data-theme="light"] .slideshow-arrow:hover { background: rgba(46, 42, 36, 0.06); }
 .slideshow-counter {
   text-align: center;
   margin-top: 0.9rem;

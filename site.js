@@ -1,30 +1,6 @@
-// ─── Shared across every page: theme toggle, navbar shadow, scroll reveal ───
+// ─── Shared across every page: navbar shadow, scroll reveal ───
 (function () {
   'use strict';
-
-  function applyThemeIcon(btn, theme) {
-    if (!btn) return;
-    btn.textContent = theme === 'light' ? '🌙' : '☀️';
-    btn.setAttribute('aria-label', theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme');
-  }
-
-  function initThemeToggle() {
-    const btn = document.querySelector('.theme-toggle');
-    const current = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-    applyThemeIcon(btn, current);
-    if (!btn) return;
-
-    btn.addEventListener('click', () => {
-      const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-      if (next === 'light') {
-        document.documentElement.setAttribute('data-theme', 'light');
-      } else {
-        document.documentElement.removeAttribute('data-theme');
-      }
-      try { localStorage.setItem('theme', next); } catch (e) { /* private mode, ignore */ }
-      applyThemeIcon(btn, next);
-    });
-  }
 
   function initNavbarShadow() {
     const navbar = document.getElementById('navbar') || document.querySelector('.navbar');
@@ -56,7 +32,6 @@
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    initThemeToggle();
     initNavbarShadow();
     initScrollReveal();
   });

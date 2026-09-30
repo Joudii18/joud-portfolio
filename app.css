@@ -3,28 +3,6 @@
    ================================================================ */
 
 /* ── Shared helpers ─────────────────────────────────────────── */
-.theme-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--text);
-  font-size: 1rem;
-  line-height: 1;
-  cursor: pointer;
-  margin-left: 0.4rem;
-  transition: background 0.2s, transform 0.2s;
-}
-
-.theme-toggle:hover {
-  transform: scale(1.08);
-  background: rgba(255, 255, 255, 0.08);
-}
-
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -90,10 +68,6 @@
 .nav-star {
   width: 25px;
   height: 25px;
-}
-
-:root[data-theme="light"] .nav-star {
-  content: url("assets/sparkles-darkmode/black-sparkle.svg");
 }
 
 .nav-links {
@@ -193,14 +167,6 @@
   transform: translateY(-3px);
 }
 
-:root[data-theme="light"] .hero-btn {
-  background: rgba(46, 42, 36, 0.06);
-}
-
-:root[data-theme="light"] .hero-btn:hover {
-  background: rgba(46, 42, 36, 0.1);
-}
-
 /* Icon wrapper — transparent, just sizes the icon */
 .btn-icon {
   display: flex;
@@ -250,27 +216,11 @@
   width: 90px;
 }
 
-:root[data-theme="light"] .sp-pink-star {
-  content: url("assets/sparkles-darkmode/pinkStar.png");
-}
-
-:root[data-theme="light"] .sp-white {
-  content: url("assets/sparkles-darkmode/black-sparkle.svg");
-}
-
-:root[data-theme="light"] .sp-yellow {
-  content: url("assets/sparkles-darkmode/BlackSun.png");
-}
-
 .sp-green {
   top: 87%;
   bottom: 26%;
   right: 16%;
   width: 60px;
-}
-
-:root[data-theme="light"] .sp-green {
-  content: url("assets/sparkles-darkmode/greenSparkle.png");
 }
 
 @keyframes float {
@@ -311,7 +261,6 @@
   0%, 100% { transform: translate(-50%, 0); }
   50%      { transform: translate(-50%, 6px); }
 }
-
 
 /* ── About Me ───────────────────────────────────────────────── */
 .about {
@@ -385,10 +334,6 @@
 .tech-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
-}
-
-:root[data-theme="light"] .tech-card:hover {
-  box-shadow: 0 14px 32px rgba(46, 42, 36, 0.12);
 }
 
 .tech-grid .tech-card:nth-child(1) { border-left-color: var(--pink); }
@@ -465,10 +410,6 @@
   opacity: 0.75;
 }
 
-:root[data-theme="light"] .explore-arrow {
-  filter: invert(1);
-}
-
 .explore-btn {
   display: inline-block;
   padding: 0.55rem 1.4rem;
@@ -507,11 +448,6 @@
   transform: translateY(-6px);
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.3);
 }
-
-:root[data-theme="light"] .project-card:hover {
-  box-shadow: 0 16px 34px rgba(46, 42, 36, 0.14);
-}
-
 
 .project-image {
   width: 100%;
@@ -593,7 +529,6 @@
 .horse { grid-column: 2; grid-row: 1; margin-top: 9rem;}
 .meras { grid-column: 1; grid-row: 2; }
 
-
 /* ── Awards ────────────────────────────────────────────────── */
 .awards {
   padding: 2rem 5% 6rem;
@@ -606,7 +541,6 @@
   font-weight: 400;
   margin-bottom: 0.4rem;
 }
-
 
 .awards-subtitle {
 font-family: var(--font);
@@ -635,10 +569,6 @@ font-family: var(--font);
 .award-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.3);
-}
-
-:root[data-theme="light"] .award-card:hover {
-  box-shadow: 0 16px 34px rgba(46, 42, 36, 0.14);
 }
 
 .award-image {
@@ -705,7 +635,6 @@ font-family: var(--font);
   background: rgba(255, 255, 255, 0.08);
 }
 
-
 /* ── Contact ────────────────────────────────────────────────── */
 .contact {
   padding: 4rem 5% 6rem;
@@ -743,10 +672,6 @@ font-family: var(--font);
 .form-star {
   width: 60px;
   margin-bottom: 0.3rem;
-}
-
-:root[data-theme="light"] .form-star {
-  content: url("assets/sparkles-darkmode/pinkStar.png");
 }
 
 .form-input,

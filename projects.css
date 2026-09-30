@@ -26,18 +26,6 @@
   --font:       var(--font-body);
 }
 
-:root[data-theme="light"] {
-  --bg:         #FBF6EE;
-  --card-bg:    #FFFFFF;
-  --navbar-bg:  rgba(251, 246, 238, 0.85);
-  --text:       #2E2A24;
-  --text-muted: rgba(46, 42, 36, 0.62);
-  --border:     rgba(46, 42, 36, 0.14);
-  --pink:       #E8628E;
-  --green:      #4F7A3D;
-  --yellow:     #C98A1E;
-}
-
 body {
   background-color: var(--bg);
   color: var(--text);
@@ -45,29 +33,7 @@ body {
   transition: background-color 0.35s ease, color 0.35s ease;
 }
 
-/* ── Theme toggle + scroll reveal ── */
-.theme-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--text);
-  font-size: 1rem;
-  line-height: 1;
-  cursor: pointer;
-  margin-left: 0.4rem;
-  transition: background 0.2s, transform 0.2s;
-}
-
-.theme-toggle:hover {
-  transform: scale(1.08);
-  background: rgba(255, 255, 255, 0.08);
-}
-
+/* ── Scroll reveal ── */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -111,10 +77,6 @@ body {
 .nav-star {
   width: 25px;
   height: 25px;
-}
-
-:root[data-theme="light"] .nav-star {
-  content: url("assets/sparkles-darkmode/black-sparkle.svg");
 }
 
 .nav-links {
@@ -232,10 +194,6 @@ body {
   transform: scale(1.08);
 }
 
-:root[data-theme="light"] .carousel-arrow:hover {
-  background: rgba(46, 42, 36, 0.06);
-}
-
 .carousel-dots {
   display: flex;
   justify-content: center;
@@ -290,7 +248,6 @@ body {
   color: var(--pink);
 }
 
-
 /* ── Projects Grid ── */
 .all-projects {
   padding: 2rem 5% 6rem;
@@ -314,10 +271,6 @@ body {
 .project-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.3);
-}
-
-:root[data-theme="light"] .project-card:hover {
-  box-shadow: 0 16px 34px rgba(46, 42, 36, 0.14);
 }
 
 .project-image {

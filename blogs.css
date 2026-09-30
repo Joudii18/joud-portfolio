@@ -30,20 +30,6 @@
   --page-pad:     6%;
 }
 
-:root[data-theme="light"] {
-  --bg:           #FBF6EE;
-  --card-bg:      #FFFFFF;
-  --navbar-bg:    rgba(251, 246, 238, 0.85);
-  --text:         #2E2A24;
-  --text-muted:   rgba(46, 42, 36, 0.62);
-  --border:       rgba(46, 42, 36, 0.14);
-  --pink:         #E8628E;
-  --green:        #4F7A3D;
-  --yellow:       #C98A1E;
-  --timeline-line: rgba(79, 122, 61, 0.3);
-  --dot:          #4F7A3D;
-}
-
 body {
   background-color: var(--bg);
   color: var(--text);
@@ -51,29 +37,7 @@ body {
   transition: background-color 0.35s ease, color 0.35s ease;
 }
 
-/* ── Theme toggle + scroll reveal ── */
-.theme-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--text);
-  font-size: 1rem;
-  line-height: 1;
-  cursor: pointer;
-  margin-left: 0.4rem;
-  transition: background 0.2s, transform 0.2s;
-}
-
-.theme-toggle:hover {
-  transform: scale(1.08);
-  background: rgba(255, 255, 255, 0.08);
-}
-
+/* ── Scroll reveal ── */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -117,10 +81,6 @@ body {
 .nav-star {
   width: 25px;
   height: 25px;
-}
-
-:root[data-theme="light"] .nav-star {
-  content: url("assets/sparkles-darkmode/black-sparkle.svg");
 }
 
 .nav-links {
@@ -170,10 +130,6 @@ body {
   height: 70px;
   margin-top: 0.5rem;
   flex-shrink: 0;
-}
-
-:root[data-theme="light"] .header-sparkle {
-  content: url("assets/sparkles-darkmode/greenSparkle.png");
 }
 
 /* ── Filter Bar ── */
@@ -314,10 +270,6 @@ body {
 .blog-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.3);
-}
-
-:root[data-theme="light"] .blog-card:hover {
-  box-shadow: 0 16px 34px rgba(46, 42, 36, 0.14);
 }
 
 /* ── Layout A: image left, text right ── */
