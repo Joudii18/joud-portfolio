@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Thought Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../blog_pages/blog_page.css" />
+  <style>
+    .moment-image,
+    .moment-image img {
+      border-radius: 0;
+    }
+    .moment-image img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── Navbar ── -->
+  <nav class="navbar" id="navbar">
+    <a href="../index.html" class="nav-logo">
+      <img src="../assets/sparkles/whiteSparkle.png" alt="" class="nav-star" />
+      <span>Joud</span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html">Projects</a>
+      <a href="../blogs.html">Blogs</a>
+    </div>
+  </nav>
+
+  <!-- ── Article Hero ── -->
+  <div class="article-hero">
+    <a href="../projects.html" class="article-back">← Back to Projects</a>
+    <h1 class="article-title">Personal Thought Archive</h1>
+    <p class="article-subtitle">
+         I found out that X lets you download an archive containing years of your tweets.
+Looking through a normal timeline isn’t really useful when you have hundreds or thousands of posts, so I started wondering: what if I could turn this archive into something I could actually explore?
+I wanted to search my old thoughts by meaning, ask questions about things I’ve written, rediscover forgotten ideas, and eventually generate new writing based on my own style, not saying AI should write for me of course, but just curious and might need a little help sometimes.
+So I worked on this simple Personal Thought Archive.
+    </p>
+    <a href="https://github.com/Joudii18" class="article-date-badge" target="_blank" rel="noreferrer">GitHub ↗</a>
+   
+  </div>
+
+  <div class="article-divider"><hr /></div>
+
+  <!-- ── Two-column: Moments + TOC ── -->
+  <div class="moments-layout">
+    
+
+    <!-- Left: all moments -->
+    <div class="moments-content">
+    
+      <div class="moment" id="phase1">
+      
+        <h2 class="moment-title">Phase 1: Understanding my archive</h2>
+         <p class="moment-text">
+            The first step wasn’t AI. It was understanding the data.
+The downloaded archive contained a tweets.js file. It looked similar to JSON, but it was wrapped in JavaScript and contained nested objects with fields for the tweet text, date, language, likes, retweets, replies, and more.
+<br>I wrote a Python parser that extracts the tweet records and turns them into a cleaner JSON dataset.
+Before analyzing anything, you have to understand the data's schema, decide which fields matter to your project, clean inconsistent values, and handle missing or duplicate records, datasets could be super super messy (might be intuitive to some but as still getting there in the field lol)
+        
+        </p>
+        <div class="moment-image">
+          <img src="../assets/twitter_project/raw-data.png" alt="raw-data" />
+        </div>
+
+        
+      </div>
+
+
+      <div class="moment-separator"></div>
+
+      <!-- Phase 2 -->
+       <div class="moment" id="phase2">
+      
+        <h2 class="moment-title">Phase 2: Cleaning and validating the data</h2>
+         <p class="moment-text">
+          A script finishing without crashing doesn’t mean its output is correct.
+I created a validator to check that: Every tweet had an ID, text, and valid date, tweet IDs were unique, engagement values were valid numbers any empty records were removed, boolean fields were stored correctly, Arabic text and emojis were preserved.
+This was one of my favorite lessons from the project: validation isn’t an optional final step. It’s part of creating the dataset and manipulating it
+        </p>
+        <p class="moment-text">
+          Parser code and run
+        </p>
+        <div class="moment-image">
+          <img class="moment-image img" src="../assets/twitter_project/parser.jpeg" alt="moment"/>
+        </div>
+          <p class="moment-text">
+            Cleaned data file 
+        </p>
+        <div class="moment-image">
+          <img src="../assets/twitter_project/parser_result.jpeg" alt="moment"/>
+        </div>
+        <p class="moment-text">
+            I found some intersting columns and though intially about using many of them, but for the sake of trying out for the first time and compeleting an inital draft of the project I used a few of the features, and some were: likes, retweets, language, is_retweet (The archive’s retweeted field is not reliable for identifying something I reposted. The parser instead checks whether the text begins with: "RT @") and source_file.
+            <br>
+            Although I checked the output once, those checks were temporary. We want a permanent program: <br> <b>src/validate_tweets.py</b> It will inspect `tweets_clean.json` every time you regenerate it and verify:
+
+<br> - It is valid JSON.
+<br> - Every tweet has the required fields.
+<br> - IDs are unique strings.
+<br> - Text is not empty.
+<br> - Dates are valid.
+<br> - Likes and retweets are non-negative integers.
+<br> - Reply and retweet flags are booleans.
+<br> - Missing values are counted.
+<br> - Arabic and emojis survived processing.
+<br> - Earliest and latest dates are reasonable.
+<br> This teaches an important data-science principle:
+A pipeline succeeding does not automatically mean its output is correct.
+<br>
+Validator Results
+        </p>
+         <div class="moment-image">
+          <img class="moment-image img" src="../assets/twitter_project/results.jpeg" alt="moment"/>
+        </div>
+        <p class="moment-text">
+            Missing Values Results
+        </p>
+          <div class="moment-image">
+          <img class="moment-image img" src="../assets/twitter_project/missing-values.jpeg" alt="moment"/>
+        </div>
+
+        
+      </div>
+      
+       <!-- Phase 3 -->
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="phase3">
+      
+        <h2 class="moment-title">Phase 3: Exploring years of tweets</h2>
+        <div class="moment-image">
+          <img src="../assets/twitter_project/exploratory.jpeg" alt="" />
+        </div>
+         <p class="moment-text">
+          Once the cleaned data was ready, I loaded it into a Jupyter notebook with pandas and started exploring it. This was my first time actually trying jupyter notebooks in vs code.
+          I looked at things such as:
+          How many tweets were in the archive and My activity over different years
+        </p>
+        <div class="moment-image">
+          <img src="../assets/twitter_project/number.png" alt="" />
+        </div>
+        <div class="moment-image">
+          <img src="../assets/twitter_project/original-image.png" alt="" />
+        </div>
+
+        <p class="moment-text">
+The proportion of original posts, replies, and retweets
+        </p>
+        <div class="moment-image">
+          <img src="../assets/twitter_project/original.jpeg" alt="" />
+        </div>
+
+         <p class="moment-text">
+          Tweet-length distributions
+                </p>
+        <div class="moment-image">
+          <img src="../assets/twitter_project/numberof.png" alt="" />
+        </div>
+
+        <p class="moment-text">
+          Engagement patterns
+                </p>
+        <div class="moment-image">
+          <img src="../assets/twitter_project/temmosst.jpeg" alt="" />
+        </div>
+        
+
+        
+      </div>
+
+       <!-- Phase 4 -->
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="phase4">
+      
+        <h2 class="moment-title">Phase 4: Keyword search</h2>
+      
+         <p class="moment-text">
+          Before adding any AI, I built ordinary keyword search, also known as lexical search.
+This let me confirm that the cleaned dataset was usable and that filtering worked correctly. I could search exact words and filter results by year, language, or post type.
+It was useful, but it also exposed an obvious limitation: I had to remember the words I originally used.
+If I searched for like “project-based learning,” it might miss a tweet where I wrote about students learning by building real products.
+Which led to semantic search.
+<br>
+But if I searched for like “ai,” it could show results as follows:
+        </p>
+        <div class="moment-image">
+          <img src="../assets/twitter_project/lexical-search.jpeg" alt="" />
+        </div>
+    
+
+
+        
+      </div>
+
+       <!-- Phase 5 -->
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="phase5">
+
+        <h2 class="moment-title">Phase 5: Embeddings and semantic search</h2>
+      
+         <p class="moment-text">
+     I've been wanting to explore RAGs and Embeddings and try them, so I generated an embedding for every tweet to build a semantic search.
+An embedding represents the meaning of text as a vector—a list of numbers. Tweets with similar meanings should have vectors that are closer together, even if they don’t use the same words.
+        When I enter a search query, the program:
+        1. Converts the query into an embedding
+        2. Compares it with the saved tweet embeddings
+        3. Calculates similarity scores
+        4. Returns the closest tweets
+
+        I initially tested a local embedding model, but its dependencies and model files required much more disk space than I expected... I later changed the project to use an embeddings API and kept the generated index locally.
+That change taught me about a practical engineering trade-off: local models provide more control and privacy, while APIs can make a small project easier to run and maintain.
+
+So lexical search asks: Does this exact word appear in the tweet?
+<br>
+Semantic search asks: Is this tweet conceptually related to the question?
+
+        </p>
+        <div class="moment-image">
+          <img src="../assets/twitter_project/image1.jpeg" alt="" />
+        </div>
+        <div class="moment-image">
+          <img src="../assets/twitter_project/image2.jpeg" alt="" />
+        </div>
+    
+        <div class="moment-image">
+          <img src="../assets/twitter_project/image3.jpeg" alt="" />
+        </div>
+  
+      </div>
+
+      <!-- Phase 6 -->
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="phase6">
+      
+        <h2 class="moment-title">Phase 6: Ask My Archive</h2>
+      
+         <p class="moment-text">
+       After semantic search worked, I built the core RAG feature: Ask My Archive.
+RAG stands for retrieval-augmented generation. Instead of asking an AI model to answer from its general knowledge, 
+the program first retrieves relevant tweets and supplies them as evidence.
+        </p>
+
+           <p class="moment-text">
+    
+       Question 
+<br>→ Retrieve relevant tweets
+<br>→ Add them to the prompt
+<br>→ Generate a grounded answer
+→ Cite the supporting tweets
+<br>
+For example, I can ask:
+<br> <b>"What have I written about university education?"</b>
+<br>
+The program retrieves related posts, excludes retweets by default, and generates an answer with numbered tweet citations.
+<br>
+        </p>
+
+         <div class="moment-image">
+          <img src="../assets/twitter_project/askmy1.jpeg" alt="" />
+        </div>
+          <div class="moment-image">
+          <img src="../assets/twitter_project/askmy2.jpeg" alt="" />
+        </div>
+
+            <p class="moment-text">
+The results aren’t always perfect. I learned that a well-written AI answer can still be based on weak retrieval results. 
+This made me think more carefully about similarity thresholds, source quality, and the difference between a fluent answer and a supported answer.
+        </p>
+
+         </div>
+
+ <!-- Phase 7 -->
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="phase7">
+      
+        <h2 class="moment-title">Phase 7: Writing in my own voice</h2>
+      
+         <p class="moment-text">
+        Alright I know many might not like this feature, but I had to try it. I wanted to try
+        what it was like to write like me in twitter (I refuse to refer to the app with X). I can enter a rough thought, 
+        and the program retrieves similar original tweets from my archive. It then uses them as style examples 
+        to generate three new drafts.
+        <br>
+The old tweets are not treated as facts to copy. They are examples of tendencies such as sentence length, tone, phrasing, 
+and how I introduce ideas.
+<br>
+I also added instructions to prevent the model from copying complete sentences or inventing experiences and opinions.
+This is another form of RAG, but instead of grounding a factual answer, retrieval helps ground the writing style.
+        
+        </p>
+        <div class="moment-image">
+          <img src="../assets/twitter_project/writing-assistane.jpeg" alt="" />
+        </div>
+
+      </div>
+
+
+      <!-- Phase 8  -->
+      <div class="moment-separator"></div>
+
+      <div class="moment" id="phase8">
+      
+        <h2 class="moment-title">Phase 8: Extra and stuff</h2>
+      
+         <p class="moment-text">
+       Last minute I decided to have a simple streamlit front end, but got too lazy to recapture the outputs on the frontend lol
+        
+        </p>
+        <div class="moment-image">
+          <img src="../assets/twitter_project/frontend.jpeg" alt="" />
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Right: sticky Table of Contents -->
+    <aside class="toc">
+      <p class="toc-heading">Table of Contents</p>
+      <ul class="toc-items">
+        <li><a href="#phase1">Understanding my archive</a></li>
+        <li><a href="#phase2">Cleaning and validating</a></li>
+        <li><a href="#phase3">Exploring years of tweets</a></li>
+        <li><a href="#phase4">Keyword search</a></li>
+        <li><a href="#phase5">Embeddings and semantic search</a></li>
+        <li><a href="#phase6">Ask My Archive</a></li>
+        <li><a href="#phase7">Writing in my own voice</a></li>
+      </ul>
+    </aside>
+
+  </div>
+
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <p>Designed and Developed by Joud.</p>
+    <p>Built with HTML, CSS &amp; JS.</p>
+  </footer>
+
+  <script>
+    // TOC active state via IntersectionObserver
+    const tocLinks = document.querySelectorAll('.toc-items a');
+    const moments  = document.querySelectorAll('.moment');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.toc-items a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-15% 0px -70% 0px' });
+
+    moments.forEach(m => observer.observe(m));
+  </script>
+
+<script src="../site.js"></script>
+<script src="../cursor.js"></script>
+</body>
+</html>
